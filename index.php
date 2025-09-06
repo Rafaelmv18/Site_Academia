@@ -50,28 +50,27 @@
     <footer>
         <div class="footer-container">
             <div class="footer-info">
-            <h3>Academia X</h3>
-            <p>Rua Exemplo, 123 - Cidade/UF</p>
-            <p>📞 (99) 99999-9999</p>
-            <p>✉️ contato@academia.com</p>
-            </div>
+                <h3>Academia X</h3>
+                <p>Rua Exemplo, 123 - Cidade/UF</p>
+                <p><i class="fa-solid fa-phone"></i> (99) 99999-9999</p>
+                <p><i class="fa-regular fa-envelope"></i> contato@academia.com</p>
+            </div><!--footer-info-->
 
             <div class="footer-links">
-            <h4>Links Rápidos</h4>
-            <ul>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#modalidades">Modalidades</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            </div>
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#modalidades">Modalidades</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div><!--footer-links-->
 
             <div class="footer-social">
-            <h4>Siga-nos</h4>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
-            
-            </div>
-        </div>
+                <h4>Siga-nos</h4>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>  
+            </div><!--footer-social-->
+        </div><!--footer-container-->
         <p class="footer-copy">© 2025 Academia X. Todos os direitos reservados.</p>
         </footer>
 
