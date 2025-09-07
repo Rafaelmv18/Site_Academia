@@ -18,7 +18,7 @@
             <nav>
                 <ul>
                     <li><a href="#sobre_nos">Sobre Nós</a></li>
-                    <li><a href="#modalidade">Modalidades</a>
+                    <li><a href="modalidades.php">Modalidades</a>
                         <ul class="sub_menu">
                             <li><a href="#">Academia</a></li>
                             <li><a href="#">Fit Dance</a></li>
