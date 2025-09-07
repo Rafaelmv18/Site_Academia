@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <?php
+        $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+    ?>
     <header>
         <div class="center">
             <div class="logo"><a href="#">LOGO</a></div><!--logo-->
@@ -29,22 +32,12 @@
     </header>
 
     <main>
-        <section id="sobre_nos">
-            <h2>Sobre Nós</h2>
-        </section>
-
-        <section id="modalidade">
-            <h2>Modalidades</h2>
-        </section>
-
-        <section id="contato">
-            <form>
-                <input type="text" placeholder="Seu nome">
-                <input type="email" placeholder="Seu e-mail">
-                <textarea placeholder="Sua mensagem"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+        <?php
+            if(file_exists('pages/'.$url.'.php')){
+                include('pages/'.$url.'.php');
+            }
+        ?>
+        
     </main>
 
     <footer>
