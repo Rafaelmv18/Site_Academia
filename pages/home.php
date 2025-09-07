@@ -1,5 +1,5 @@
 <section id="sobre_nos">
-            <h2>Sobre Nós</h2>
+    <h2>Sobre Nós</h2>
 </section>
 
 <section id="modalidade">

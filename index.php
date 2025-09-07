@@ -25,7 +25,7 @@
                             <li><a href="#">Pilates</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="?url=contato">Contato</a></li>
                 </ul>
             </nav>
         </div><!--center-->
