@@ -10,9 +10,13 @@ body {
 }
 
 header {
+    width: 100%;
+    display: flex;
     background: #111;
     color: white;
     padding: 15px 0;
+    top: 0;
+    position: fixed;
 }
 
 /* Nav */

@@ -14,11 +14,11 @@
     ?>
     <header>
         <div class="center">
-            <div class="logo"><a href="#">LOGO</a></div><!--logo-->
+            <div class="logo"><a href="?url=home">LOGO</a></div><!--logo-->
             <nav>
                 <ul>
                     <li><a href="#sobre_nos">Sobre Nós</a></li>
-                    <li><a href="modalidades.php">Modalidades</a>
+                    <li><a href="?url=modalidades">Modalidades</a>
                         <ul class="sub_menu">
                             <li><a href="#">Academia</a></li>
                             <li><a href="#">Fit Dance</a></li>
