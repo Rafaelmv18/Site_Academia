@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modalidades - Academia</title>
+    <title>Modalidades - Academia PowerUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/modalidades.css">
 </head>
 <body>
     <div class="container">
-        <!-- Card Musculação -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -18,7 +20,7 @@
                 <div class="card-back">
                     <div class="card-description">
                         <h3>Musculação 24h</h3>
-                        <p>Treine a qualquer hora do dia ou da noite com equipamentos de última geração.</p>
+                        <p>Treine a qualquer hora com equipamentos de última geração e conquiste seus objetivos.</p>
                         <ul>
                             <li>Acesso 24 horas por dia</li>
                             <li>Equipamentos modernos</li>
@@ -31,7 +33,6 @@
             </div>
         </div>
 
-        <!-- Card Artes Marciais -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -48,6 +49,27 @@
                             <li>Muay Thai</li>
                             <li>Instrutores experientes</li>
                             <li>Turmas para todas as idades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="img/pilates.jpg" alt="Pilates" class="card-image">
+                    <div class="card-title">Pilates</div>
+                </div>
+                <div class="card-back">
+                    <div class="card-description">
+                        <h3>Pilates</h3>
+                        <p>Fortaleça seu corpo, melhore a postura e aumente a flexibilidade com movimentos que integram mente e corpo.</p>
+                        <ul>
+                            <li>Fortalecimento do core (centro de força)</li>
+                            <li>Melhora da postura e alinhamento corporal</li>
+                            <li>Aumento da flexibilidade e tônus muscular</li>
+                            <li>Redução de estresse e dores crônicas</li>
                         </ul>
                     </div>
                 </div>

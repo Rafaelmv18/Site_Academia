@@ -31,6 +31,7 @@
                         </ul>
                     </li>
                     <li><a href="?url=contato">Contato</a></li>
+                    <li class="areaCliente"><a href="#">Área do cliente</a></li>
                 </ul>
             </nav>
         </div><!--center-->

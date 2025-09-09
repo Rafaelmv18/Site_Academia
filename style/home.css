@@ -64,6 +64,28 @@ nav a:hover {
     color: #f39c12;
 }
 
+
+.areaCliente{
+    width: 140px;
+    padding: 5px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+}
+
+.areaCliente a{
+    color: #d35400;
+}
+
+nav .areaCliente:hover{
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+nav .areaCliente a:hover{
+    color: #d35400;
+}
+
 /* Submenu */
 nav .sub_menu {
     display: none;
@@ -92,7 +114,6 @@ nav .sub_menu li a:hover {
 }
 
 /* Error*/
-
 
 section.erro-404 h2{
   text-align: center;
