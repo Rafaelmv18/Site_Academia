@@ -1,243 +1,167 @@
+/* --- GERAL E FUNDAÇÃO --- */
+:root {
+    --cor-primaria: #f39c12;   /* Laranja */
+    --cor-secundaria: #d35400; /* Laranja mais escuro */
+    --cor-fundo: #f4f4f4;       /* Cinza bem claro */
+    --cor-titulo: #111;
+    --cor-texto: #333;
+    --cor-branco: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ecf0f1; /* Cor de fundo principal */
-    color: #2c3e50; /* Cor de texto principal */
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
 
-header {
-    background-color: #2c3e50; /* Cor de fundo do header */
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
+.sobre-inner {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 60px 20px;
 }
 
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: white;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #1abc9c; /* Cor primária (destaque) */
-}
-
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1571019613454-f02b93f0a07e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    color: white;
+/* --- SEÇÃO INTRODUÇÃO --- */
+.sobre-intro {
     text-align: center;
-    padding: 100px 20px;
+    margin-bottom: 50px;
 }
 
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+.sobre-intro h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: var(--cor-titulo);
 }
 
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+.sobre-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 16px auto;
 }
 
 .btn-cta {
-    background-color: #1abc9c; /* Cor primária (destaque) */
-    color: white;
-    padding: 15px 30px;
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 12px 25px;
+    border-radius: 8px;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.btn-cta:hover { 
+    background: var(--cor-secundaria); 
+    transform: translateY(-3px);
 }
 
-.btn-cta:hover {
-    background-color: #16a085; /* Cor secundária (hover) */
+/* --- SEÇÃO MISSÃO / VISÃO / VALORES --- */
+.sobre-values {
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
 }
 
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.sobre {
-    background-color: #ffffff; /* Cor neutra para caixas */
-    text-align: center;
-}
-
-.sobre h2 {
-    color: #2c3e50; /* Cor de texto principal */
-    margin-bottom: 20px;
-}
-
-.sobre p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.planos {
-    background-color: #ecf0f1; /* Cor de fundo principal */
-    text-align: center;
-}
-
-.planos h2 {
-    color: #2c3e50; /* Cor de texto principal */
-    margin-bottom: 40px;
-}
-
-.planos-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.plano-card {
-    background-color: #ffffff; /* Cor neutra para caixas */
+.value-card {
+    background: var(--cor-branco);
     border-radius: 10px;
-    padding: 30px;
-    width: 300px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
+}
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-.plano-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.value-card i {
+    font-size: 2.5rem;
+    color: var(--cor-primaria);
+    margin-bottom: 12px;
 }
 
-.plano-card.destaque {
-    border: 3px solid #1abc9c; /* Cor primária (destaque) */
+.value-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--cor-titulo);
 }
 
-.plano-card h3 {
-    color: #1abc9c; /* Cor primária (destaque) */
-    font-size: 1.8em;
-    margin-top: 0;
-    margin-bottom: 15px;
+.value-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
 }
 
-.plano-card .price {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #2c3e50; /* Cor de texto principal */
-    margin-bottom: 20px;
+/* --- CARD DE IMAGEM GRANDE --- */
+.sobre-card-container {
+    margin-bottom: 50px;
 }
 
-.plano-card .price span {
-    font-size: 0.5em;
-    font-weight: normal;
+.sobre-card-container .card {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.plano-card ul {
-    list-style: none;
-    padding: 0;
+.sobre-card-container .card-front { 
+    position: relative; 
+    width: 100%;
+    aspect-ratio: 16 / 7; /* Mais moderno que altura fixa */
+}
+
+.card-image { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform .6s ease;
+}
+.card:hover .card-image { 
+    transform: scale(1.05);
+}
+
+.card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    color: var(--cor-branco);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* --- SEÇÃO EQUIPE --- */
+.sobre-team h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--cor-titulo);
     margin-bottom: 30px;
 }
 
-.plano-card ul li {
-    margin-bottom: 10px;
-    color: #555;
-    position: relative;
-    padding-left: 25px;
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.plano-card ul li::before {
-    content: '✔';
-    color: #1abc9c; /* Cor primária (destaque) */
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.btn-plano {
-    background-color: #1abc9c; /* Cor primária (destaque) */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-.btn-plano:hover {
-    background-color: #16a085; /* Cor secundária (hover) */
-}
-
-footer {
-    background-color: #2c3e50; /* Cor de fundo do footer */
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-}
-
-.social-icons a {
-    color: #3498db; /* Destaques adicionais */
-    font-size: 1.5em;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #1abc9c; /* Cor primária (destaque) */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5em;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 15px;
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    .planos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .plano-card {
-        width: 90%;
-    }
+.team-member img{
+    width: 250px;
 }

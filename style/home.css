@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    z-index: 999;
+   
 }
 
 body {
@@ -19,11 +19,13 @@ header {
     top: 0;
     height: 80px;  
     position: fixed;
+     z-index: 999;
 }
 
 main {
     margin-top: 70px;
     margin-bottom: 200px;
+    z-index: 1;
 }
 
 /* Nav */
