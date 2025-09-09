@@ -13,14 +13,20 @@
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cor-fundo);
+    
     padding: 20px;
+    flex-direction: column;
 }
 
 /* --- Estrutura dos Cards --- */

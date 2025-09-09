@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-        $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+        $url = isset($_GET['url']) ? $_GET['url'] : 'infoGeral';
     ?>
     <header>
         <div class="center">
