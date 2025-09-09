@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nossos Planos - Academia PowerUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/infoGeral.css">
 </head>
 <body>
     <section class="sobre">
-        <h2>Sobre a Academia</h2>
+        <h2>Transforme Seu Corpo e Mente</h2>
         <p>
-            Nossa academia é dedicada a transformar vidas por meio do esporte, saúde e bem-estar. 
-            Contamos com uma estrutura moderna, equipamentos de última geração e profissionais qualificados 
-            para acompanhar você em cada etapa da sua evolução.
+            Na Academia X, acreditamos que a atividade física é a chave para uma vida plena. Oferecemos uma estrutura moderna, equipamentos de ponta e uma equipe de profissionais apaixonados, prontos para guiar você em sua jornada de transformação, seja qual for o seu objetivo.
         </p>
         <p>
-            Aqui você encontra diversas modalidades, desde a musculação tradicional até aulas dinâmicas 
-            como Fit Dance e Pilates. Nosso objetivo é ajudar você a atingir seus objetivos com qualidade de vida.
+            Explore nossas modalidades, da musculação intensa às aulas de Fit Dance e Pilates que relaxam e fortalecem. Venha descobrir a sua melhor versão em um ambiente motivador e acolhedor.
         </p>
-        </section>
+    </section>
 
-        <section class="planos">
-            <h2>Nossos Planos</h2>
-            <div class="planos-container">
-                <div class="plano">
-                    <h3>Plano Básico</h3>
-                    <p>Acesso à musculação</p>
-                    <p>Horário comercial</p>
-                    <p><strong>R$ 79,90/mês</strong></p>
-                    <button>Assinar</button>
-                </div>
-
-                <div class="plano destaque">
-                    <h3>Plano Plus</h3>
-                    <p>Musculação + Aulas Coletivas</p>
-                    <p>Acesso livre (06h às 22h)</p>
-                    <p><strong>R$ 109,90/mês</strong></p>
-                    <button>Assinar</button>
-                </div>
-
-                <div class="plano">
-                    <h3>Plano Premium</h3>
-                    <p>Tudo do Plano Plus</p>
-                    <p>Personal Trainer 2x por semana</p>
-                    <p><strong>R$ 159,90/mês</strong></p>
-                    <button>Assinar</button>
-                </div>
+    <section class="planos">
+        <h2>Escolha o Plano Perfeito para Você</h2>
+        <div class="planos-container">
+            <div class="plano">
+                <h3>Plano Básico</h3>
+                <p class="preco">R$ 79,90<span>/mês</span></p>
+                <ul class="beneficios">
+                    <li><i class="fa-solid fa-check"></i> Acesso completo à área de musculação</li>
+                    <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
+                    <li><i class="fa-solid fa-check"></i> Avaliação física inicial</li>
+                </ul>
+                <button>Quero Começar</button>
             </div>
-        </section>
+
+            <div class="plano destaque">
+                <div class="selo-destaque">Mais Popular</div>
+                <h3>Plano Plus</h3>
+                <p class="preco">R$ 109,90<span>/mês</span></p>
+                <ul class="beneficios">
+                    <li><i class="fa-solid fa-check"></i> Acesso completo à área de musculação</li>
+                    <li><i class="fa-solid fa-check"></i> Todas as aulas coletivas (Fit Dance, Pilates, etc.)</li>
+                    <li><i class="fa-solid fa-check"></i> Horário livre (06h às 22h)</li>
+                    <li><i class="fa-solid fa-check"></i> Acesso a aplicativo de treinos</li>
+                </ul>
+                <button>Escolher Plano</button>
+            </div>
+
+            <div class="plano">
+                <h3>Plano Premium</h3>
+                <p class="preco">R$ 159,90<span>/mês</span></p>
+                <ul class="beneficios">
+                    <li><i class="fa-solid fa-check"></i> Todos os benefícios do Plano Plus</li>
+                    <li><i class="fa-solid fa-check"></i> Acompanhamento com Personal Trainer 2x/semana</li>
+                    <li><i class="fa-solid fa-check"></i> Avaliação física e nutricional mensal</li>
+                    <li><i class="fa-solid fa-check"></i> Acesso para um amigo por mês</li>
+                </ul>
+                <button>Seja Premium</button>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
