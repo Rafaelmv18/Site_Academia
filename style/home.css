@@ -91,6 +91,42 @@ nav .sub_menu li a:hover {
     color: #f39c12;
 }
 
+/* Error*/
+
+
+section.erro-404 h2{
+  text-align: center;
+  color: #444;
+  font-weight: 400;
+  font-size: 28px;
+  padding: 8px;
+  border-bottom: 2px solid #444;
+}
+
+section.erro-404 p{
+  margin-top: 8px;
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  font-weight: 300;
+}
+
+section.erro-404 a{
+  color: #f39c12;
+}
+
+.wraper-404{
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  width: 100%;
+  left: 50%;
+  padding: 0 2%;
+  max-width: 1280px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+}
+
 /* Footer */
 
 footer {

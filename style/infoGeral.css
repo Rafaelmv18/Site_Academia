@@ -1,6 +1,7 @@
 body{
     background-color: white;
 }
+
 .sobre {
     padding: 50px 20px;
     max-width: 1000px;
@@ -11,14 +12,14 @@ body{
 .sobre h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    color: white;
+    color: #111;
 }
 
 .sobre p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 15px;
-    color: whitesmoke;
+    color: #444;
     text-align: justify;
 }
 
