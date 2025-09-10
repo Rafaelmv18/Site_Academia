@@ -65,7 +65,7 @@
             <div class="footer-links">
                 <h4>Links Rápidos</h4>
                 <ul>
-                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="?=sobre">Sobre Nós</a></li>
                     <li><a href="?url=modalidades">Modalidades</a></li>
                     <li><a href="?url=contato">Contato</a></li>
                 </ul>

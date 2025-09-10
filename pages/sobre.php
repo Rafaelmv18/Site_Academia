@@ -24,7 +24,7 @@
                     de treinos eficientes, acompanhamento profissional e um ambiente que inspira evolução. 
                     Investimos em equipamentos modernos e em uma equipe comprometida com o seu sucesso.
                 </p>
-                <a class="btn-cta" href="#">Agende uma Visita</a>
+                <a class="btn-cta" href="?=planos">Matricular</a>
             </div>
 
             <div class="sobre-values">
