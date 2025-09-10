@@ -15,14 +15,15 @@
 </head>
 <body>
     <?php
-        $url = isset($_GET['url']) ? $_GET['url'] : 'infoGeral';
+        $url = isset($_GET['url']) ? $_GET['url'] : 'planos';
     ?>
     <header>
         <div class="center">
-            <div class="logo"><a href="?url=infoGeral">LOGO</a></div><!--logo-->
+            <div class="logo"><a href="?url=planos">LOGO</a></div><!--logo-->
             <nav>
                 <ul>
                     <li><a href="?url=sobre">Sobre Nós</a></li>
+                    <li><a href="?url=planos">Planos</a></li>
                     <li><a href="?url=modalidades">Modalidades</a>
                         <ul class="sub_menu">
                             <li><a href="#">Academia</a></li>
@@ -40,7 +41,7 @@
     <main>
         <?php
             if (!isset($url) || $url == "") {
-                $url = "infoGeral";
+                $url = "planos";
             }
 
             if (file_exists("pages/" . $url . ".php")) {
