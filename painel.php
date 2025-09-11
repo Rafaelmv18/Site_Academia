@@ -29,13 +29,13 @@
                     </li>
                     <li class="nav-item">
                         <a href="#usuarios" class="nav-link" data-section="usuarios">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-calendar"></i>
                             <span>Planos</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#relatorios" class="nav-link" data-section="relatorios">
-                            <i class="fa-solid fa-calendar"></i>
+                            <i class="fa-solid fa-table"></i>
                             <span>Agendamentos</span>
                         </a>
                     </li>
