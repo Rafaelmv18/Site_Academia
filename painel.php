@@ -22,44 +22,44 @@
             <nav class="sidebar-nav">
                 <ul class="nav-list">
                     <li class="nav-item active">
-                        <a href="#dashboard" class="nav-link" data-section="dashboard">
+                        <a href="inicio" class="nav-link" data-section="inicio">
                             <i class="fa-solid fa-house"></i>
                             <span>Inicio</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#usuarios" class="nav-link" data-section="usuarios">
+                        <a href="planos" class="nav-link" data-section="planos">
                             <i class="fa-solid fa-calendar"></i>
                             <span>Planos</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#relatorios" class="nav-link" data-section="relatorios">
+                        <a href="agendamentos" class="nav-link" data-section="agendamentos">
                             <i class="fa-solid fa-table"></i>
                             <span>Agendamentos</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#vendas" class="nav-link" data-section="vendas">
+                        <a href="cadastro" class="nav-link" data-section="cadastro">
                             <i class="fa-solid fa-users-between-lines"></i>
                             <span>Cadastro</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#produtos" class="nav-link" data-section="produtos">
+                        <a href="usuarios" class="nav-link" data-section="usuarios">
                             <i class="fas fa-users"></i>
-                            <span>Usuarios</span>
+                            <span>Usuários</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#configuracoes" class="nav-link" data-section="configuracoes">
+                        <a href="funcionarios" class="nav-link" data-section="funcionarios">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Funcionários</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <div class="user-profile">
                     <div class="user-avatar">
@@ -112,54 +112,7 @@
             </header>
 
             <div class="content-area">
-                <!-- Dashboard Section -->
-                <section id="dashboard" class="content-section active">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>1,234</h3>
-                                <p>Usuários Ativos</p>
-                                <span class="stat-change positive">+12%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>R$ 45,678</h3>
-                                <p>Vendas do Mês</p>
-                                <span class="stat-change positive">+8%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>89.5%</h3>
-                                <p>Taxa de Conversão</p>
-                                <span class="stat-change negative">-2%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-box"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>567</h3>
-                                <p>Produtos</p>
-                                <span class="stat-change positive">+15</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
             </div>
         </main>
     </div>
