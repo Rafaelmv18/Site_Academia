@@ -6,8 +6,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    background: #f4f4f4;
+    color: #333;
 }
 
 header {
@@ -62,6 +63,7 @@ nav a {
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 5px 0;
+    text-transform: uppercase; /* TESTE */
 }
 
 nav a::after {

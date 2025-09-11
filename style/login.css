@@ -1,0 +1,316 @@
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Card de login */
+.login-card {
+    background-color: #1c1c1c;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Seção do logo */
+.logo-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.logo-title i {
+    color: #f39c12;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #bbb;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Formulário */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grupos de input */
+.input-group {
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: #bbb;
+    font-size: 16px;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background-color: #111;
+    border: 2px solid #333;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+input:focus {
+    border-color: #f39c12;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+}
+
+input:focus + .input-icon,
+input:focus ~ .input-icon {
+    color: #f39c12;
+}
+
+/* Botão de mostrar/ocultar senha */
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #bbb;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.toggle-password:hover {
+    color: #f39c12;
+}
+
+/* Botão principal */
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #f39c12;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Link esqueci senha */
+.forgot-password {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    transition: color 0.3s ease;
+    margin-top: 4px;
+}
+
+.forgot-password:hover {
+    color: #f39c12;
+}
+
+/* Divisor */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 24px 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #333;
+}
+
+.divider span {
+    background-color: #1c1c1c;
+    color: #bbb;
+    padding: 0 16px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+    
+    .login-card {
+        padding: 32px 24px;
+        border-radius: 12px;
+    }
+    
+    .logo-title {
+        font-size: 24px;
+    }
+    
+    .logo-title i {
+        font-size: 28px;
+    }
+    
+    input {
+        padding: 18px 16px 18px 48px;
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+    
+    .btn-primary,
+    .btn-google {
+        padding: 18px;
+        font-size: 16px;
+        min-height: 56px; /* Tamanho mínimo para toque */
+    }
+    
+    .toggle-password {
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 360px) {
+    .login-card {
+        padding: 24px 20px;
+    }
+    
+    .logo-title {
+        font-size: 22px;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados de foco melhorados */
+input:focus {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(255, 69, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0);
+    }
+}
+
+/* Loading state para botões */
+.btn-primary.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-primary.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

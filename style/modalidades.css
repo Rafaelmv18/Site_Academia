@@ -13,39 +13,27 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--cor-fundo);
-}
-
 .container {
-    
     min-height: 100vh;
     display: flex;
+    flex-direction: row; 
     justify-content: center;
     align-items: center;
-    
     padding: 20px;
-    flex-direction: column;
-}
-
-/* --- Estrutura dos Cards --- */
-.container {
-    display: flex;
     gap: 40px;
     flex-wrap: wrap;
-    justify-content: center;
     max-width: 1200px;
     width: 100%;
+    margin: 0 auto; 
 }
 
 .card {
     width: 350px;
-    height: 400px;
+    height: 450px;
     perspective: 1000px;
     cursor: pointer;
-    animation: fadeInUp 0.6s ease-out forwards; /* 'forwards' mantém o estado final */
-    opacity: 0; /* Inicia invisível para a animação */
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
 }
 
 .card-inner {
@@ -75,9 +63,6 @@ body{
     align-items: center;
 }
 
-/* --- APLICAÇÕES DA NOVA PALETA E ESTILOS --- */
-
-/* Frente do Card */
 .card-front {
     background-color: var(--cor-titulo);
     color: var(--cor-texto-claro);
@@ -95,16 +80,10 @@ body{
     transition: filter 0.5s ease, transform 0.5s ease;
 }
 
-/* Efeito de hover na imagem */
-.card:hover .card-front .card-image {
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
-
 .card-title {
-    position: absolute; /* <-- ADICIONE: Torna o elemento "posicionável" */
-    bottom: 0;          /* <-- ADICIONE: Fixa o título na base do card */
-    left: 0;            /* <-- ADICIONE: Alinha o título à esquerda */
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
     color: var(--cor-texto-claro);
@@ -113,9 +92,9 @@ body{
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    z-index: 2; /* AGORA FUNCIONA: Garante que o título fique sobre a imagem */
+    z-index: 2;
     text-align: center;
-    box-sizing: border-box; /* Boa prática para incluir o padding no width total */
+    box-sizing: border-box;
 }
 
 /* Verso do Card */

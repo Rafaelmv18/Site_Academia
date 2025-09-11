@@ -8,14 +8,6 @@
     --cor-branco: #fff;
 }
 
-/* Reset básico e definição da fonte */
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-}
-
 /* --- Seção Sobre --- */
 .sobre {
     padding: 60px 20px;
