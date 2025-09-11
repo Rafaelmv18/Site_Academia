@@ -15,6 +15,9 @@
 <body>
     <div class="container">
         <div class="login-card">
+            <a href="index.php" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
             <div class="logo-section">
                 <h1 class="logo-title">
                     <i class="fas fa-dumbbell"></i>

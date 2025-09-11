@@ -169,6 +169,39 @@ body {
     color: var(--text-gray);
 }
 
+.sub_menu {
+    display: none; 
+    list-style: none;
+    margin: 0;
+    width: 8%;
+    padding: 10px;
+    background: #111;
+    color: white;
+    position: absolute; 
+    top: 80%;
+    right: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.sub_menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.sub_menu li a:hover {
+    background: #f39c12;
+}
+
+/* quando ativo */
+.sub_menu.active {
+    display: block;
+}
+
+
 /* Área principal */
 .main-content {
     flex: 1;

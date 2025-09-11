@@ -23,7 +23,7 @@
                 <ul class="nav-list">
                     <li class="nav-item active">
                         <a href="#dashboard" class="nav-link" data-section="dashboard">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-house"></i>
                             <span>Inicio</span>
                         </a>
                     </li>
@@ -35,13 +35,13 @@
                     </li>
                     <li class="nav-item">
                         <a href="#relatorios" class="nav-link" data-section="relatorios">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-calendar"></i>
                             <span>Agendamentos</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#vendas" class="nav-link" data-section="vendas">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-users-between-lines"></i>
                             <span>Cadastro</span>
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#configuracoes" class="nav-link" data-section="configuracoes">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-user-tie"></i>
                             <span>Funcionários</span>
                         </a>
                     </li>
@@ -104,6 +104,9 @@
                             </div>
                             <i class="fas fa-chevron-down"></i>
                         </button>
+                        <ul class="sub_menu">
+                            <li><a href="login.php">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </header>
@@ -161,6 +164,6 @@
         </main>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
