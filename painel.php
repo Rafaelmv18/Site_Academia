@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="style_painel/inicio.css">
     <link rel="stylesheet" href="style_painel/planos.css">
-    <link rel="stylesheet" href="style_painel/dashboard-style.css">
+    <link rel="stylesheet" href="style_painel/agendamento.css">
     <link rel="stylesheet" href="style_painel/cadastro.css">
-    <link rel="stylesheet" href="style_painel/usuarios.css">
+    <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
     
 
 
