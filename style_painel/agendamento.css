@@ -43,7 +43,8 @@ body {
     margin-bottom: 2rem;
     flex-wrap: wrap; /* Para telas pequenas */
 }
-.date-selector a, .date-selector .date-input-label {
+
+.date-selector a {
     margin: 0 5px;
     padding: 0.75rem 1.25rem;
     text-decoration: none;
@@ -60,14 +61,7 @@ body {
     background-color: var(--orange-accent); /* Cor de destaque ativa */
     color: var(--primary-black); /* Texto escuro para contraste */
 }
-.date-selector .date-input-label input {
-    border: none;
-    outline: none;
-    background: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: var(--text-gray);
-}
+
 
 /* --- GRID DE AGENDAMENTO --- */
 .schedule-grid {

@@ -66,9 +66,6 @@
         <a href="#">Ontem</a>
         <a href="#" class="active">Hoje</a>
         <a href="#">Amanhã</a>
-        <label class="date-input-label">
-            <input type="date" value="<?php echo date('Y-m-d'); ?>">
-        </label>
     </nav>
 
     <main class="schedule-grid">
