@@ -5,7 +5,7 @@
     --cor-fundo: #1a1a1a;      /* fundo escuro */
     --cor-texto: #e0e0e0;      /* texto claro */
     --cor-titulo: #ffffff;     /* título branco */
-    --cor-branco: #2c2c2c;     /* cartões/camadas mais escuras */
+    --cor-camada-escura: #2c2c2c;     /* cartões/camadas mais escuras */
 }
 
 /* --- Fundo geral --- */
@@ -62,7 +62,7 @@ section i {
 }
 
 .plano {
-    background: var(--cor-branco);
+    background: var(--cor-camada-escura);
     border: 1px solid #444;
     border-radius: 10px;
     padding: 30px;
