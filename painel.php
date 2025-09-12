@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia</title>
-    <link rel="stylesheet" href="style/painel.css">
+    <link rel="stylesheet" href="style_painel/painel.css">
+
+    <link rel="stylesheet" href="style_painel/inicio.css">
+    <link rel="stylesheet" href="style_painel/planos.css">
+    <link rel="stylesheet" href="style_painel/dashboard-style.css">
+    <link rel="stylesheet" href="style_painel/cadastro.css">
+    <link rel="stylesheet" href="style_painel/usuarios.css">
+    
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="%23FFD43B"><path d="M104 96h24V64c0-17.7 14.3-32 32-32s32 14.3 32 32v32h256V64c0-17.7 14.3-32 32-32s32 14.3 32 32v32h24c13.3 0 24 10.7 24 24v272c0 13.3-10.7 24-24 24h-24v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H192v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H104c-13.3 0-24-10.7-24-24V120c0-13.3 10.7-24 24-24z"/></svg>'>
 </head>

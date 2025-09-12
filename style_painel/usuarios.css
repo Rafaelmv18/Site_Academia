@@ -1,0 +1,108 @@
+/* style_painel/usuarios.css */
+.usuarios-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Título */
+.usuarios-wrapper h2 {
+  margin-bottom: 18px;
+  color: #f39c12;
+  font-weight: 900;
+}
+
+/* Caixa de busca */
+.search-box-usuario {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-box-usuario input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #444;
+  border-radius: 25px;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box-usuario input::placeholder {
+  color: #b0b0b0;
+}
+
+.search-box-usuario button {
+  padding: 10px 20px;
+  background: #f39c12;
+  border: none;
+  border-radius: 25px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-box-usuario input:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
+}
+
+.search-box-usuario button:hover {
+  background: linear-gradient(35deg, #f39c12, #d35400);
+  color: #fff;
+}
+
+/* Área de resultados */
+.result-area {
+  margin-top: 20px;
+}
+
+/* Card de usuário em linha */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espaço entre os itens */
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 25px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-card:hover {
+  background: #2a2a2a;
+}
+
+/* Ícone */
+.user-icon {
+  font-size: 28px;
+  color: #f39c12;
+}
+
+/* Nome */
+.user-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* CPF */
+.user-cpf {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Plano (lado direito destacado) */
+.user-plan {
+  margin-left: auto; /* joga para a direita */
+  font-weight: bold;
+  color: #f39c12;
+}
+
