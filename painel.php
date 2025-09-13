@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style_painel/agendamento.css">
     <link rel="stylesheet" href="style_painel/cadastro.css">
     <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
+    <link rel="stylesheet" href="style_painel/pagamento.css">
     
 
 
@@ -30,7 +31,7 @@
             
             <nav class="sidebar-nav">
                 <ul class="nav-list">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="inicio" class="nav-link" data-section="inicio">
                             <i class="fa-solid fa-house"></i>
                             <span>Inicio</span>
@@ -114,7 +115,7 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <ul class="sub_menu">
-                            <li><a href="login.php">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                            <li><a href="index.php">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
                         </ul>
                     </div>
                 </div>

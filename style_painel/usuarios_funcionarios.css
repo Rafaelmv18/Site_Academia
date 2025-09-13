@@ -46,13 +46,13 @@
 }
 
 .search-box-usuario input:focus {
-    outline: none;
-    border-color: #f39c12;
-    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
+  outline: none;
+  border-color: #f39c12;
+  box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
 }
 
 .search-box-usuario button:hover {
-  background: linear-gradient(35deg, #f39c12, #d35400);
+  background: #d35400;
   color: #fff;
 }
 

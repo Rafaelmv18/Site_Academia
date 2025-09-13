@@ -1,0 +1,136 @@
+:root {
+  --cor-primaria: #f39c12;
+  --cor-secundaria: #ff8800;
+  --cor-fundo: #1e1e1e;
+  --cor-card: #2a2a2a;
+  --cor-texto: #fff;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+}
+
+.pagamento-wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--cor-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.pagamento-wrapper h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--cor-primaria);
+}
+
+.resumo-plano {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.resumo-plano h3 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.resumo-plano .preco {
+  font-size: 20px;
+  color: var(--cor-primaria);
+  font-weight: bold;
+}
+
+.form-pagamento {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-pagamento h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #ddd;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.form-group input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-finalizar {
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-finalizar:hover {
+  background: var(--cor-secundaria);
+}
+
+.outras-opcoes {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.outras-opcoes p {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.botoes-extra {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-extra {
+  background: #333;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-extra:hover {
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}

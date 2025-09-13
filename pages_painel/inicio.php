@@ -8,7 +8,7 @@
         // Dados de exemplo (substitua com seus dados reais)
         $nome_usuario = "Carlos Santana";
         $cpf_usuario = "***.123.456-**"; // É bom mascarar o CPF
-        $tipo_conta = "Administrador";
+        $tipo_conta = "Usuario";
         $plano_atual = "Plano Premium";
         $dias_para_vencer = 18;
     ?>
@@ -36,7 +36,7 @@
                         </span>
                     </li>
                 </ul>
-                <a href="#" data-section="cadastro" class="btn btn-primary nav-link">
+                <a href="#" data-section="cadastro" class="btn btn-primary">
                     <i class="fa-solid fa-pencil"></i> Editar Perfil
                 </a>
             </div>
@@ -53,7 +53,7 @@
                         <span class="days-left">Expira em <strong><?php echo $dias_para_vencer; ?> dias</strong></span>
                     </li>
                 </ul>
-                <a href="#" data-section="planos" class="btn btn-secondary nav-link">
+                <a href="#" data-section="planos" class="btn btn-primary">
                     <i class="fa-solid fa-calendar-days"></i> Ver Planos e Faturas
                 </a>
             </div>

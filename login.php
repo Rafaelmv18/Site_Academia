@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-primary">
+                <button type="submit" class="btn-primary" onclick="resetSection()">
                     <i class="fas fa-sign-in-alt"></i>
                     Entrar
                 </button>
@@ -53,5 +53,10 @@
             </form>
         </div>
     </div>
+    <script>
+        function resetSection() {
+            localStorage.removeItem("activeSection"); // limpa a seção salva
+        }
+    </script>
 </body>
 </html>

@@ -80,7 +80,8 @@
 }
 
 .tag-aluno {
-    background-color: #3498db; /* Azul para aluno */
+    background-color: #f39c12; /* Azul para aluno */
+    color: #000000;
 }
 
 
@@ -135,21 +136,11 @@
     margin-right: 8px;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #f39c12, #d35400);
+.dashboard-grid .btn-primary {
+    background: #f39c12;
+    color: #000;
+}
+.dashboard-grid .btn-primary:hover {
+    background: #d35400;
     color: #fff;
-}
-.btn-primary:hover {
-    background: #fff;
-    transform: translateY(-2px);
-    color: #34495e;
-}
-
-.btn-secondary {
-    background-color: #ecf0f1;
-    color: #34495e;
-}
-.btn-secondary:hover {
-    background: linear-gradient(135deg, #f39c12, #d35400);
-    color: #e0e0e0;
 }
