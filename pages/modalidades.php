@@ -1,5 +1,9 @@
 <section class="modalidades">
     <div class="container">
+        <div class="intro">
+            <h1>Transforme Seu Corpo</h1>
+            <p>Descubra nossas atividades e comece sua jornada fitness hoje mesmo</p>
+        </div>
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">

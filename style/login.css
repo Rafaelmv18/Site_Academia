@@ -177,7 +177,7 @@ input:focus ~ .input-icon {
 .btn-primary:hover {
     background-color: #f39c12;
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(209, 84, 0, 0.3);
 }
 
 .btn-primary:active {

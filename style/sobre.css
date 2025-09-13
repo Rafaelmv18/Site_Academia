@@ -17,7 +17,6 @@
 .sobre-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 60px 20px;
 }
 
 /* --- SEÇÃO INTRODUÇÃO --- */
@@ -27,9 +26,9 @@
 }
 
 .sobre-intro h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem; 
     font-weight: 900;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     color: var(--cor-titulo);
 }
 
