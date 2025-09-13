@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style_painel/agendamento.css">
     <link rel="stylesheet" href="style_painel/cadastro.css">
     <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
-    <link rel="stylesheet" href="style_painel/pagamento.css">
     
 
 

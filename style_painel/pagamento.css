@@ -80,10 +80,19 @@ body {
 
 .form-row {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
 }
 
-.btn-finalizar {
+.botoes-pagamento {
+  display: flex;
+  justify-content: space-between; /* espaço entre os botões */
+  gap: 15px; /* espaço entre eles */
+  margin-top: 15px;
+}
+
+.btn-finalizar,
+.btn-cancelar {
+  flex: 1; /* faz os dois ficarem do mesmo tamanho */
   background: var(--cor-primaria);
   color: #fff;
   padding: 14px;
@@ -92,13 +101,21 @@ body {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
   transition: background 0.3s;
 }
 
-.btn-finalizar:hover {
-  background: var(--cor-secundaria);
+.btn-cancelar {
+  background: #aaa; /* cor diferente para cancelar */
 }
+
+.btn-cancelar:hover {
+  background: #888;
+}
+
+.btn-finalizar:hover {
+  background: #ff8800;
+}
+
 
 .outras-opcoes {
   margin-top: 25px;
