@@ -1,3 +1,4 @@
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -26,18 +27,18 @@
                 <p class="subtitle">Entre na sua conta</p>
             </div>
 
-            <form class="login-form" id="loginForm" action="painel.php" method="post">
+            <form class="login-form" id="loginForm" action="login_processo.php" method="post">
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fas fa-envelope input-icon"></i>
-                        <input type="email" id="email" name="email" placeholder="E-mail">
+                        <input type="text" id="email" name="email" placeholder="E-mail">
                     </div>
                 </div>
 
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fas fa-lock input-icon"></i>
-                        <input type="password" id="password" name="password" placeholder="Senha">
+                        <input type="password" id="senha" name="senha" placeholder="Senha">
                         <button type="button" class="toggle-password" id="togglePassword">
                             <i class="fas fa-eye"></i>
                         </button>

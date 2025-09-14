@@ -1,4 +1,5 @@
 <?php
+
 class MySql{
 	private static $pdo;
 	public static function conectar(){
@@ -13,4 +14,5 @@ class MySql{
 		return self::$pdo;
 	}
 }
+
 ?>
