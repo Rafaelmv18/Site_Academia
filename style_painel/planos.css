@@ -113,10 +113,6 @@
     transition: background 0.3s ease;
 }
 
-.plano button:hover {
-    background: #d35400;
-    color: #fff;
-}
 
 /* --- Destaque --- */
 .destaque {

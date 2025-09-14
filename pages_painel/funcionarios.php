@@ -5,7 +5,7 @@
         <!-- Pesquisa -->
         <div class="search-box-usuario">
             <input id="cpfInput" type="text" placeholder="Digite o CPF (apenas números)" maxlength="14" />
-        <button id="searchBtn">Buscar</button>
+        <button id="searchBtn" class="btn-primary">Buscar</button>
         </div>
 
         <!-- Resultado -->

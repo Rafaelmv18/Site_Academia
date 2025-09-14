@@ -457,15 +457,17 @@ body {
     color: var(--danger-red);
 }
 
-/* .btn-primary:hover {
-    background-color: #f39c12;
+/* Butão */
+.btn-primary{
+    background: #f39c12;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: 0 8px 20px rgba(209, 84, 0, 0.3);
 }
 
-.btn-primary:active {
-    transform: translateY(0);
-} */
 
 /* Responsividade */
 @media (max-width: 1024px) {

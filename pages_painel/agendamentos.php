@@ -94,7 +94,7 @@
                     </div>
 
                     <?php if ($isAgendado): ?>
-                        <button class="btn btn-desmarcar">
+                        <button class="btn btn-primary desmarcar">
                             <i class="fa-solid fa-circle-xmark"></i> Desmarcar
                         </button>
                     <?php elseif ($isLotado): ?>
@@ -102,7 +102,7 @@
                             <i class="fa-solid fa-lock"></i> Lotado
                         </button>
                     <?php else: ?>
-                            <button class="btn btn-agendar">
+                            <button class="btn btn-primary">
                             <i class="fa-solid fa-circle-check"></i> Agendar
                         </button>
                     <?php endif; ?>

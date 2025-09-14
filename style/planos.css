@@ -109,10 +109,8 @@ section i{
 .plano button {
     margin-top: auto; 
     padding: 15px 20px;
-    background: var(--cor-primaria);
     border: none;
     border-radius: 6px;
-    color: var(--cor-branco);
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -120,9 +118,6 @@ section i{
     transition: background 0.3s ease;
 }
 
-.plano button:hover {
-    background: var(--cor-secundaria);
-}
 
 .destaque {
     border: 3px solid var(--cor-primaria);

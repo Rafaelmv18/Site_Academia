@@ -135,12 +135,3 @@
 .btn i {
     margin-right: 8px;
 }
-
-.dashboard-grid .btn-primary {
-    background: #f39c12;
-    color: #000;
-}
-.dashboard-grid .btn-primary:hover {
-    background: #d35400;
-    color: #fff;
-}

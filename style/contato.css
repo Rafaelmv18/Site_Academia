@@ -1,12 +1,7 @@
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
-}
+
 
 .contato {
+    min-height: calc(100vh - 307px);
     padding: 50px 20px;
     text-align: center;
     min-width: 500px;
@@ -41,16 +36,10 @@ body {
 }
 
 .form-contato button {
-    background: #f39c12;
-    color: white;
     padding: 12px;
     border: none;
     border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-.form-contato button:hover {
-    background: #ff8800;
 }

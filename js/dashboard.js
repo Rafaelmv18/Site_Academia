@@ -1,7 +1,7 @@
 const userBtn = document.querySelector('.user-btn');
 const submenu = document.querySelector('.sub_menu');
 
- const navLinks = document.querySelectorAll(".nav-link");
+const navLinks = document.querySelectorAll(".nav-link");
 const contentArea = document.querySelector(".content-area");
 const pageTitle = document.querySelector(".page-title");
 

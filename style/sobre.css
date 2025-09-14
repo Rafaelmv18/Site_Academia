@@ -42,18 +42,12 @@
 .btn-cta {
     display: inline-block;
     margin-top: 16px;
-    background: var(--cor-primaria);
-    color: var(--cor-branco);
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
     transition: background 0.3s ease, transform 0.3s ease;
-}
-.btn-cta:hover { 
-    background: var(--cor-secundaria); 
-    transform: translateY(-3px);
 }
 
 /* --- SEÇÃO MISSÃO / VISÃO / VALORES --- */

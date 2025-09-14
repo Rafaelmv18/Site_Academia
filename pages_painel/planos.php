@@ -9,7 +9,7 @@
                 <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
                 <li><i class="fa-solid fa-check"></i> Avaliação física inicial</li>
             </ul>
-            <button onclick="window.location.href='pages_painel/pagamento.php?plano=Basico&valor=79.90'">Quero Começar</button>
+            <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano=Basico&valor=79.90'">Quero Começar</button>
 
 
         </div>
@@ -24,7 +24,7 @@
                 <li><i class="fa-solid fa-check"></i> Horário livre (06h às 22h)</li>
                 <li><i class="fa-solid fa-check"></i> Acesso a aplicativo de treinos</li>
             </ul>
-            <button onclick="window.location.href='pages_painel/pagamento.php?plano=Basico&valor=109.90'">Escolher Plano</button>
+            <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano=Basico&valor=109.90'">Escolher Plano</button>
 
         </div>
 
@@ -37,7 +37,7 @@
                 <li><i class="fa-solid fa-check"></i> Avaliação física e nutricional mensal</li>
                 <li><i class="fa-solid fa-check"></i> Acesso para um amigo por mês</li>
             </ul>
-            <button onclick="window.location.href='pages_painel/pagamento.php?plano=Premium&valor=159.90'">Seja Premium</button>
+            <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano=Premium&valor=159.90'">Seja Premium</button>
         </div>
     </div>
 </section>

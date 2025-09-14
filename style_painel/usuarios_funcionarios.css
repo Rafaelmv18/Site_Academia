@@ -36,10 +36,8 @@
 
 .search-box-usuario button {
   padding: 10px 20px;
-  background: #f39c12;
   border: none;
   border-radius: 25px;
-  color: #111;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
@@ -51,10 +49,6 @@
   box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
 }
 
-.search-box-usuario button:hover {
-  background: #d35400;
-  color: #fff;
-}
 
 /* Área de resultados */
 .result-area {

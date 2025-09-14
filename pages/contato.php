@@ -4,6 +4,6 @@
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
+        <button class="btn-primary" type="submit">Enviar</button>
     </form>
 </section>

@@ -148,11 +148,15 @@ body {
     gap: 8px;
     color: var(--primary-black); /* Cor do texto dos botões */
 }
-.btn-agendar { background-color: var(--orange-accent); }
-.btn-agendar:hover { background-color: var(--orange-hover); }
 
-.btn-desmarcar { background-color: var(--medium-gray); color: var(--white); }
-.btn-desmarcar:hover { background-color: var(--dark-gray); }
+
+.desmarcar { 
+    background-color: var(--medium-gray); color: var(--white);
+}
+
+.desmarcar:hover { 
+    box-shadow: 0 8px 20px rgba(109, 109, 109, 0.3);
+}
 
 .btn:disabled {
     background-color: var(--danger-red);

@@ -104,16 +104,25 @@ body {
   transition: background 0.3s;
 }
 
+/* Butão */
+.btn-finalizar{
+  background: #f39c12;
+  color: #fff !important;
+}
+
+.btn-finalizar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(209, 84, 0, 0.3);
+}
+
+
 .btn-cancelar {
   background: #aaa; /* cor diferente para cancelar */
 }
 
 .btn-cancelar:hover {
-  background: #888;
-}
-
-.btn-finalizar:hover {
-  background: #ff8800;
+   transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(109, 109, 109, 0.3);
 }
 
 

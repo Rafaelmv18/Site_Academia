@@ -19,7 +19,7 @@
                 <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
                 <li><i class="fa-solid fa-check"></i> Avaliação física inicial</li>
             </ul>
-            <button>Quero Começar</button>
+            <button class="btn-primary" onclick="window.location.href='login.php'">Quero Começar</button>
         </div>
 
         <div class="plano destaque">
@@ -32,7 +32,7 @@
                 <li><i class="fa-solid fa-check"></i> Horário livre (06h às 22h)</li>
                 <li><i class="fa-solid fa-check"></i> Acesso a aplicativo de treinos</li>
             </ul>
-            <button>Escolher Plano</button>
+            <button class="btn-primary" onclick="window.location.href='login.php'">Escolher Plano</button>
         </div>
 
         <div class="plano">
@@ -44,7 +44,7 @@
                 <li><i class="fa-solid fa-check"></i> Avaliação física e nutricional mensal</li>
                 <li><i class="fa-solid fa-check"></i> Acesso para um amigo por mês</li>
             </ul>
-            <button>Seja Premium</button>
+            <button class="btn-primary" onclick="window.location.href='login.php'">Seja Premium</button>
         </div>
     </div>
 </section>
