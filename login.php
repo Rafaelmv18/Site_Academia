@@ -1,4 +1,9 @@
-<?php include('config.php'); ?>
+<?php include('config.php');
+if (isset($_SESSION['erro_login'])) {
+    echo '<p style="color: red; text-align: center;">'.$_SESSION['erro_login'].'</p>';
+    unset($_SESSION['erro_login']);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

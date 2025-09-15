@@ -13,9 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $info['email'];
         $_SESSION['status'] = $info['status'];
         $_SESSION['tipo_usuario'] = $info['tipo_usuario'];
+
         header("Location: painel.php");
+        exit;
     } else {
-        echo 'erro';
+        $_SESSION['erro_login'] = "E-mail ou senha inválidos!";
+        header("Location: login.php");
+        exit;
     }
 }
 
