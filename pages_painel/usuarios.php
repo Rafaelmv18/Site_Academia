@@ -1,3 +1,6 @@
+<?php
+    $plano = 'Premium';
+?>
 <section>
     <div class="usuarios-wrapper">
         <h2>Buscar usuário por CPF</h2>
@@ -14,26 +17,10 @@
                 <i class="fa-solid fa-user-circle user-icon"></i>
                 <span class="user-name">João Silva</span>
                 <span class="user-cpf">123.456.789-00</span>
-                <span class="user-plan">Premium</span>
+                <span class="user-plan"><?php echo $plano?></span>
             </div>
-            <div class="user-card">
-                <i class="fa-solid fa-user-circle user-icon"></i>
-                <span class="user-name">João Silva</span>
-                <span class="user-cpf">123.456.789-00</span>
-                <span class="user-plan">Premium</span>
-            </div>
-            <div class="user-card">
-                <i class="fa-solid fa-user-circle user-icon"></i>
-                <span class="user-name">João Silva</span>
-                <span class="user-cpf">123.456.789-00</span>
-                <span class="user-plan">Premium</span>
-            </div>
-            <div class="user-card">
-                <i class="fa-solid fa-user-circle user-icon"></i>
-                <span class="user-name">João Silva</span>
-                <span class="user-cpf">123.456.789-00</span>
-                <span class="user-plan">Premium</span>
-            </div>
+
         </div>
     </div>
 </section>
+<script src="../js/busca.js"></script>

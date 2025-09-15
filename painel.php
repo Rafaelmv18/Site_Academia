@@ -126,6 +126,6 @@
         </main>
     </div>
 
-    <script src="js/dashboard.js"></script>
+    <script src="./js/dashboard.js"></script>
 </body>
 </html>
