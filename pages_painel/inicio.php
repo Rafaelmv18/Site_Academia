@@ -1,19 +1,14 @@
 <?php
-    // Exemplo de como você traria os dados do usuário do banco de dados
-    // session_start();
-    // $user_id = $_SESSION['user_id'];
-    // $dados_usuario = busca_dados_do_banco($user_id);
+   
+    require_once '../config.php';
 
-    // Dados de exemplo (substitua com seus dados reais)
-    $nome_usuario = "Carlos Santana";
-    $cpf_usuario = "***.123.456-**"; // É bom mascarar o CPF
-    $tipo_conta = "Usuario";
+    $tipo_conta = ($_SESSION['status'] == 1) ? 'Administrador' : 'Usuário'; 
     $plano_atual = "Plano Premium";
     $dias_para_vencer = 18;
 ?>
 
 <section class="dashboard-home">
-    <h1>Bem-vindo(a) de volta, <?php echo explode(' ', $nome_usuario)[0]; ?>!</h1>
+    <h1>Bem-vindo(a)!</h1>
     <p class="subtitle">Aqui está um resumo rápido da sua conta.</p>
 
     <div class="dashboard-grid">
@@ -23,8 +18,12 @@
                     <i class="fa-solid fa-user-circle"></i>
                 </div>
                 <div class="profile-info">
-                    <h2><?php echo $nome_usuario; ?></h2>
-                    <span>CPF: <?php echo $cpf_usuario; ?></span>
+                    <h2><?php echo $_SESSION['nome']; ?></h2>
+                    <span>CPF: 
+                        <?php 
+                            echo htmlspecialchars($cpf_mascarado);
+                        ?>
+                    </span>
                 </div>
             </div>
             <ul class="profile-details">
