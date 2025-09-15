@@ -2,7 +2,7 @@
    
     require_once '../config.php';
 
-    $tipo_conta = ($_SESSION['status'] == 1) ? 'Administrador' : 'Usuário'; 
+    $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
     $plano_atual = "Plano Premium";
     $dias_para_vencer = 18;
 ?>

@@ -1,3 +1,7 @@
+<?php
+require_once('./config.php');
+$tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -48,19 +52,19 @@
                             <span>Agendamentos</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
                         <a href="cadastro" class="nav-link" data-section="cadastro">
                             <i class="fa-solid fa-users-between-lines"></i>
                             <span>Cadastro</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
                         <a href="usuarios" class="nav-link" data-section="usuarios">
                             <i class="fas fa-users"></i>
                             <span>Usuários</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
                         <a href="funcionarios" class="nav-link" data-section="funcionarios">
                             <i class="fa-solid fa-user-tie"></i>
                             <span>Funcionários</span>
@@ -75,8 +79,8 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Admin</span>
-                        <span class="user-role">Administrador</span>
+                        <span class="user-name"><?php echo $_SESSION['nome']; ?></span>
+                        <span class="user-role"><?php echo $tipo_conta; ?></span>
                     </div>
                 </div>
             </div>

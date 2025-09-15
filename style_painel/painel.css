@@ -38,6 +38,10 @@ body {
     overflow-x: hidden;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* Container principal */
 .dashboard-container {
     display: flex;
