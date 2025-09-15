@@ -7,7 +7,7 @@ const password = document.getElementById("password");
 
 document.addEventListener("DOMContentLoaded", () => {
     const togglePassword = document.getElementById("togglePassword");
-    const password = document.getElementById("password");
+    const password = document.getElementById("senha");
 
     togglePassword.addEventListener("click", function () {
         const type = password.getAttribute("type") === "password" ? "text" : "password";
