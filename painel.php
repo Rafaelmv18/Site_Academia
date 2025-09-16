@@ -52,7 +52,7 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
                             <span>Agendamentos</span>
                         </a>
                     </li>
-                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
+                    <li class="nav-item">
                         <a href="cadastro" class="nav-link" data-section="cadastro">
                             <i class="fa-solid fa-users-between-lines"></i>
                             <span>Cadastro</span>
@@ -62,12 +62,6 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
                         <a href="usuarios" class="nav-link" data-section="usuarios">
                             <i class="fas fa-users"></i>
                             <span>Usuários</span>
-                        </a>
-                    </li>
-                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
-                        <a href="funcionarios" class="nav-link" data-section="funcionarios">
-                            <i class="fa-solid fa-user-tie"></i>
-                            <span>Funcionários</span>
                         </a>
                     </li>
                 </ul>
@@ -98,18 +92,6 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
                 </div>
                 
                 <div class="top-bar-right">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Pesquisar...">
-                    </div>
-                    
-                    <div class="notifications">
-                        <button class="notification-btn">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
-                        </button>
-                    </div>
-                    
                     <div class="user-menu">
                         <button class="user-btn">
                             <div class="user-avatar-small">
