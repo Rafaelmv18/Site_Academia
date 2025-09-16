@@ -1,10 +1,10 @@
 <?php
-   
     require_once '../config.php';
-
     $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
     $plano_atual = "Plano Premium";
     $dias_para_vencer = 18;
+    $aluno = Painel::select('tb_aluno', 'aluno_id=?', array($_SESSION['usuario_id']));
+    $plano = Painel::select('tb_plano', 'plano_id=?', array($aluno['plano_id']));
 ?>
 
 <section class="dashboard-home">
@@ -45,7 +45,7 @@
             <ul class="plan-details">
                 <li>
                     <strong>Plano Atual:</strong>
-                    <span><?php echo $plano_atual; ?></span>
+                    <span><?php echo $plano['nome']; ?></span>
                 </li>
                 <li class="plan-expiration">
                     <strong>Vencimento:</strong>
