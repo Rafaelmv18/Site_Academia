@@ -57,7 +57,7 @@ $planos = Painel::selectAll('plano', 'plano_id', 'ASC');
                 <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
                 <li><i class="fa-solid fa-check"></i> Avaliação física inicial</li>
             </ul>
-            <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano=Basico&valor=79.90'">Quero Começar</button>
+            <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano_id=1'">Quero Começar</button>
         </div>
         <?php } ?>
     </div>

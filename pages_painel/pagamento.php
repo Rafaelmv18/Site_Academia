@@ -1,6 +1,6 @@
 <?php
-$plano = isset($_GET['plano']) ? $_GET['plano'] : 'Plano não definido';
-$valor = isset($_GET['valor']) ? $_GET['valor'] : '0,00';
+    include('../config.php');
+    $plano = Painel::select('plano', 'plano_id=?', array($_GET['plano_id']));
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +19,8 @@ $valor = isset($_GET['valor']) ? $_GET['valor'] : '0,00';
 
         <!-- Resumo do plano -->
         <div class="resumo-plano">
-            <h3><?php echo htmlspecialchars($plano); ?></h3>
-            <p class="preco">R$ <?php echo htmlspecialchars($valor); ?>/mês</p>
+            <h3><?php echo $plano['nome'] ?></h3>
+            <p class="preco">R$ <?php echo $plano['valor']; ?>/mês</p>
         </div>
 
         <!-- Formulário de pagamento -->
