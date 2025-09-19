@@ -3,7 +3,7 @@ include('config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $sql = MySql::conectar()->prepare("SELECT * FROM `tb_usuario` WHERE email = ? AND senha = ?");
+    $sql = PgSql::conectar()->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
     $sql->execute(array($email, $senha));
     if ($sql->rowCount() == 1) {
         $info = $sql->fetch();

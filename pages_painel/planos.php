@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php'; 
-$planos = Painel::selectAll('tb_plano', 'plano_id', 'ASC');
+$planos = Painel::selectAll('plano', 'plano_id', 'ASC');
 ?>
 <section class="planos">
     <h2>Escolha o Plano Perfeito para Você</h2>
@@ -51,7 +51,7 @@ $planos = Painel::selectAll('tb_plano', 'plano_id', 'ASC');
         <?php foreach ($planos as $plano){?>
         <div class="plano">
             <h3><?php echo $plano['nome']; ?></h3>
-            <p class="preco">R$ 79,90<span>/mês</span></p>
+            <p class="preco"><?php echo $plano['valor']; ?><span>/mês</span></p>
             <ul class="beneficios">
                 <li><i class="fa-solid fa-check"></i> Acesso completo à área de musculação</li>
                 <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
