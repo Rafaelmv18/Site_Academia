@@ -107,13 +107,9 @@
     margin-bottom: 15px;
 }
 
-.plan-details strong {
-    color: #c5c5c5;
-}
-
 .plan-expiration .days-left {
-    color: #27ae60; /* Verde por padrão */
-    font-weight: 700;
+    color: #c5c5c5; /* Verde por padrão */
+    font-weight: 600;
 }
 
 /* Adicione esta regra se quiser mudar a cor com base nos dias */

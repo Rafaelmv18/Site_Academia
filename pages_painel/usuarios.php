@@ -11,8 +11,6 @@
         <div class="search-box-usuario">
             <input id="cpfInput" type="text" placeholder="Digite o CPF (apenas números)" maxlength="14" />
             <button id="searchBtn" class="btn-primary">Buscar</button>
-            <button id="clearBtn" class="btn-secondary" style="padding:10px 12px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">Limpar</button>
-
         </div>
 
         <!-- Resultado -->

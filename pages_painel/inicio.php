@@ -49,7 +49,7 @@
                 </li>
                 <li class="plan-expiration">
                     <strong>Vencimento:</strong>
-                    <span class="days-left">Expira em <strong><?php echo $dias_para_vencer; ?> dias</strong></span>
+                    <span class="days-left"><?php echo (empty($aluno['data_fim_plano'])) ? 'Sem Plano':  $aluno['data_fim_plano']; ?></span>
                 </li>
             </ul>
             <a href="#" data-section="planos" class="btn btn-primary">
