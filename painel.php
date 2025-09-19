@@ -15,6 +15,7 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
     <link rel="stylesheet" href="style_painel/agendamento.css">
     <link rel="stylesheet" href="style_painel/cadastro.css">
     <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
+    <link rel="stylesheet" href="style_painel/modalidades.css">
     
 
 
@@ -62,6 +63,12 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
                         <a href="usuarios" class="nav-link" data-section="usuarios">
                             <i class="fas fa-users"></i>
                             <span>Usuários</span>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
+                        <a href="modalidades" class="nav-link" data-section="modalidades">
+                            <i class="fa-regular fa-file"></i>
+                            <span>Modalidades</span>
                         </a>
                     </li>
                 </ul>

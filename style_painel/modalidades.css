@@ -1,0 +1,108 @@
+:root {
+    --primary-black: #1a1a1a;
+    --secondary-black: #2d2d2d;
+    --dark-gray: #3a3a3a;
+    --medium-gray: #4a4a4a;
+    --light-gray: #6a6a6a;
+    --text-gray: #b0b0b0;
+    --orange-accent: #f39c12;
+    --orange-hover: #e67e22;
+    --success-green: #27ae60;
+    --danger-red: #e74c3c;
+    --white: #ffffff;
+}
+
+/* Container principal */
+.modalidades-admin {
+    padding: 40px 20px;
+    background: #1a1a1a;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+}
+
+.modalidades-admin h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--orange-accent);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container-modalidades{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    
+    gap: 25px; 
+}
+
+/* Card de cada modalidade */
+.modalidade-form {
+    background: var(--primary-black);
+    border: 1px solid var(--dark-gray);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    padding: 20px;
+    margin: 0; /* O grid agora controla o espaçamento */
+    max-width: 100%;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* Labels */
+.modalidade-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-gray);
+}
+
+/* Inputs e Textarea */
+.modalidade-form input[type="text"],
+.modalidade-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.modalidade-form input[type="text"]:focus,
+.modalidade-form textarea:focus {
+    border-color: var(--orange-accent);
+    background: var(--medium-gray);
+}
+
+/* Preview da imagem */
+.modalidade-form img {
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid var(--medium-gray);
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+/* Botão */
+.modalidade-form button {
+    display: inline-block;
+    padding: 10px 18px;
+    border: none;
+    background: var(--orange-accent);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modalidade-form button:hover {
+    background: var(--orange-hover);
+    transform: scale(1.05);
+}
