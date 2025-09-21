@@ -35,8 +35,8 @@ if (isset($_SESSION['erro_login'])) {
             <form class="login-form" id="loginForm" action="login_processo.php" method="post">
                 <div class="input-group">
                     <div class="input-wrapper">
-                        <i class="fas fa-envelope input-icon"></i>
-                        <input type="text" id="email" name="email" placeholder="E-mail">
+                        <i class="fa-solid fa-user input-icon"></i>
+                        <input type="text" id="cpf" name="cpf" placeholder="CPF">
                     </div>
                 </div>
 

@@ -1,10 +1,10 @@
 <?php
 include('config.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
-    $sql = PgSql::conectar()->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
-    $sql->execute(array($email, $senha));
+    $sql = PgSql::conectar()->prepare("SELECT * FROM usuario WHERE cpf = ? AND senha = ?");
+    $sql->execute(array($cpf, $senha));
     if ($sql->rowCount() == 1) {
         $info = $sql->fetch();
         $_SESSION['usuario_id'] = $info['usuario_id'];
