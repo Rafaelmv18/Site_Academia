@@ -1,6 +1,48 @@
 <?php
 require_once('./config.php');
 $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
+
+if (isset($_POST['cadastro'])) {
+    $nome = $_POST['nome'];
+    $senha = $_POST['cpf'];
+    $cpf = $_POST['cpf'];
+    $email = $_POST['email'];
+    $ddi = $_POST['ddi'];
+    $telefone = $ddi . ' ' . $_POST['telefone'];
+    $data  = $_POST['nascimento'];
+    $endereco = $_POST['endereco'];
+    $tipo = $_POST['tipo'];
+    $cargo = $_POST['cargo'];
+
+    Usuario::cadastrarUsuario($nome, $senha, $cpf, $email, $telefone, $data, $endereco, $tipo, $cargo);
+
+    //alerta de sucesso
+}
+
+if(isset($_POST['atualizarModalidade'])){
+    $id = $_POST['modalidade_id'];
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $horarios = $_POST['horarios'];
+    $imagem = $_POST['imagem'];
+
+    Modalidade::atualizarModalidade($id, $nome, $descricao, $horarios, $imagem);
+}
+
+if(isset($_POST['cadastrarModalidade'])){
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $horarios = $_POST['horarios'];
+    $imagem = $_POST['imagem'];
+
+    Modalidade::cadastrarModalidade($nome, $descricao, $horarios, $imagem);
+}
+
+if(isset($_POST['excluirModalidade'])){
+    $id = $_POST['modalidade_id'];
+
+    Modalidade::deletarModalidade($id);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

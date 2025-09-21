@@ -14,12 +14,6 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--secondary-black); /* Fundo principal escuro */
-    color: var(--text-gray); /* Cor de texto padrão */
-}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -30,6 +24,7 @@ body {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--white); /* Título principal branco */
+    font-weight: 900;
 }
 
 /* --- SELETOR DE DATA --- */

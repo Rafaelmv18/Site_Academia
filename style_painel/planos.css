@@ -1,33 +1,4 @@
-/* --- Seção Sobre --- */
-.sobre {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-}
-
-.sobre h2 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.sobre p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #e0e0e0;
-}
-
-/* --- Seção Planos --- */
-.planos i {
-    color: #41c56d;
-}
-
 .planos {
-    padding: 60px 20px;
     text-align: center;
 }
 

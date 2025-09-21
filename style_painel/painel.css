@@ -31,11 +31,9 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--primary-black);
     color: var(--text-gray);
-    line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .hidden {
