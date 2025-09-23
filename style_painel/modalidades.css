@@ -70,12 +70,20 @@
     color: var(--white);
     outline: none;
     transition: border-color 0.2s ease, background 0.2s ease;
+    resize: vertical;
 }
 
 .modalidade-form input[type="text"]:focus,
 .modalidade-form textarea:focus {
     border-color: var(--orange-accent);
     background: var(--medium-gray);
+}
+
+/* No seu arquivo CSS */
+.horario {
+    height: 6em;
+    line-height: 1.5em;
+    padding: 5px; 
 }
 
 /* Preview da imagem */

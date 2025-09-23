@@ -1,7 +1,7 @@
 <?php
 require('../config.php');
 ?>
-    <section>
+<section>
     <div class="usuarios-wrapper">
         <h2>Cadastro de Usuário</h2>
         <form class="cadastro-form" method="POST">
@@ -60,4 +60,4 @@ require('../config.php');
             <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
-    </section>
+</section>

@@ -50,6 +50,22 @@ class Painel{
 				</div>';
 		}
 	}
+
+
+    /**
+     * Método para redirecionar o usuário para uma URL específica.
+     * @param string $url A URL de destino para o redirecionamento.
+     */
+    public static function redirect($url) {
+        // A função header() do PHP envia um cabeçalho HTTP para o navegador.
+        // 'Location:' é o cabeçalho que instrui o navegador a ir para outra página.
+        header('Location: ' . $url);
+
+        // A função die() (ou exit()) é MUITO IMPORTANTE aqui.
+        // Ela garante que a execução do script PHP seja interrompida imediatamente
+        // após o envio do cabeçalho de redirecionamento.
+        die();
+    }
 }
 
 ?>

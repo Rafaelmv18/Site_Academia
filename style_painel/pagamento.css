@@ -5,6 +5,9 @@
   --cor-card: #2a2a2a;
   --cor-texto: #fff;
 }
+body{
+  background: #1e1e1e;
+}
 
 .pagamento-wrapper {
   max-width: 500px;
@@ -29,6 +32,7 @@
 .resumo-plano h3 {
   font-size: 22px;
   margin: 0;
+  color: #fff;
 }
 
 .resumo-plano .preco {

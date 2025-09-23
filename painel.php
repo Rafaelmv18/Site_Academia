@@ -1,6 +1,6 @@
 <?php
 require_once('./config.php');
-$tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
+$tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
 
 if (isset($_POST['cadastro'])) {
     $nome = $_POST['nome'];
@@ -9,39 +9,80 @@ if (isset($_POST['cadastro'])) {
     $email = $_POST['email'];
     $ddi = $_POST['ddi'];
     $telefone = $ddi . ' ' . $_POST['telefone'];
-    $data  = $_POST['nascimento'];
+    $data   = $_POST['nascimento'];
     $endereco = $_POST['endereco'];
     $tipo = $_POST['tipo'];
     $cargo = $_POST['cargo'];
 
     Usuario::cadastrarUsuario($nome, $senha, $cpf, $email, $telefone, $data, $endereco, $tipo, $cargo);
-
-    //alerta de sucesso
 }
 
-if(isset($_POST['atualizarModalidade'])){
+// Define o diretório de destino para as imagens
+$uploadDir = 'img/';
+
+// --- CADASTRAR NOVA MODALIDADE ---
+if (isset($_POST['cadastrarModalidade'])) {
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $horarios = $_POST['horarios'];
+    $imagemPath = ''; // Valor padrão
+
+    // Verifica se uma imagem foi enviada
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
+        $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
+        $caminhoCompleto = $uploadDir . $nomeArquivo;
+
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoCompleto)) {
+            $imagemPath = $caminhoCompleto; // Salva o caminho completo (ex: 'img/arquivo.jpg')
+        }
+    }
+
+    Modalidade::cadastrarModalidade($nome, $descricao, $horarios, $imagemPath);
+    // Sugestão: Adicionar alerta e redirect aqui.
+}
+
+// --- ATUALIZAR MODALIDADE EXISTENTE ---
+if (isset($_POST['atualizarModalidade'])) {
     $id = $_POST['modalidade_id'];
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
     $horarios = $_POST['horarios'];
-    $imagem = $_POST['imagem'];
+    // Pega o caminho da imagem atual do formulário (input hidden)
+    $imagemPath = $_POST['imagem_atual'];
 
-    Modalidade::atualizarModalidade($id, $nome, $descricao, $horarios, $imagem);
+    // Verifica se uma NOVA imagem foi enviada para substituir a antiga
+    if (isset($_FILES['imagem']) && !empty($_FILES['imagem']['name']) && $_FILES['imagem']['error'] == 0) {
+        $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
+        $caminhoCompleto = $uploadDir . $nomeArquivo;
+
+        // Tenta mover o novo arquivo
+        if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoCompleto)) {
+            // Se conseguiu mover o novo, apaga o antigo (se existir)
+            if (!empty($imagemPath) && file_exists($imagemPath)) {
+                unlink($imagemPath);
+            }
+            // Atualiza o caminho da imagem para o novo arquivo
+            $imagemPath = $caminhoCompleto;
+        }
+    }
+
+    Modalidade::atualizarModalidade($id, $nome, $descricao, $horarios, $imagemPath);
+    // Sugestão: Adicionar alerta e redirect aqui.
 }
 
-if(isset($_POST['cadastrarModalidade'])){
-    $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $horarios = $_POST['horarios'];
-    $imagem = $_POST['imagem'];
-
-    Modalidade::cadastrarModalidade($nome, $descricao, $horarios, $imagem);
-}
-
-if(isset($_POST['excluirModalidade'])){
+// --- EXCLUIR MODALIDADE ---
+if (isset($_POST['excluirModalidade'])) {
     $id = $_POST['modalidade_id'];
+    // Pega o caminho da imagem atual para poder excluí-la do servidor
+    $imagemPath = $_POST['imagem_atual'];
+
+    // Apaga o arquivo de imagem do servidor, se ele existir
+    if (!empty($imagemPath) && file_exists($imagemPath)) {
+        unlink($imagemPath);
+    }
 
     Modalidade::deletarModalidade($id);
+    // Sugestão: Adicionar alerta e redirect aqui.
 }
 ?>
 <!DOCTYPE html>
@@ -58,6 +99,7 @@ if(isset($_POST['excluirModalidade'])){
     <link rel="stylesheet" href="style_painel/cadastro.css">
     <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
     <link rel="stylesheet" href="style_painel/modalidades.css">
+    <link rel="stylesheet" href="style_painel/relatorio.css">
     
 
 
@@ -109,8 +151,14 @@ if(isset($_POST['excluirModalidade'])){
                     </li>
                     <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
                         <a href="modalidades" class="nav-link" data-section="modalidades">
-                            <i class="fa-regular fa-file"></i>
+                            <i class="fa-solid fa-file"></i>
                             <span>Modalidades</span>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
+                        <a href="relatorio" class="nav-link" data-section="relatorio">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span>Relatorio</span>
                         </a>
                     </li>
                 </ul>

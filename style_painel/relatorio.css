@@ -1,0 +1,52 @@
+/* CÓDIGO CSS COMPLETO E CORRIGIDO */
+
+.relatorios {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #222;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+
+    /* --- ADICIONADO PARA CRIAR AS COLUNAS --- */
+    display: grid; /* Ativa o layout de grid */
+    
+    /* Cria colunas responsivas: cada uma terá no mínimo 400px de largura
+       e o grid criará quantas colunas couberem na tela. */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    
+    gap: 20px; /* Espaçamento entre os blocos */
+}
+
+.relatorios h1 {
+    text-align: center;
+    margin-bottom: 20px; /* Ajuste na margem */
+    color: #ffffff;
+    font-size: 2rem;
+    
+    /* Faz o título ocupar todas as colunas do grid */
+    grid-column: 1 / -1; 
+}
+
+/* Container para cada linha do relatório */
+.relatorio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    
+    /* --- ALTERADO --- */
+    margin-bottom: 0; /* O 'gap' do grid agora controla o espaçamento */
+}
+
+.relatorios h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+.relatorios button {
+    margin-left: 15px; 
+}
