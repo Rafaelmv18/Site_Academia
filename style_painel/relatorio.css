@@ -116,7 +116,7 @@ body{
 
 
 /* --- BOTÃO --- */
-.btn-primary{
+.btn-gerar{
     flex: 1; /* faz os dois ficarem do mesmo tamanho */
     background: var(--cor-primaria);
     color: #fff;
@@ -131,7 +131,7 @@ body{
     color: #fff !important;
 }
 
-.btn-primary:hover {
+.btn-gerar:hover {
     transform: translateY(-1px);
     box-shadow: 0 8px 20px rgba(209, 84, 0, 0.3);
 }

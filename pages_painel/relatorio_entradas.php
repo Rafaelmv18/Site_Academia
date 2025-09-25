@@ -37,7 +37,7 @@ $entradas = $sqlEntradas->fetchAll(PDO::FETCH_ASSOC);
         </table>
 
         <br>
-        <button class="btn btn-primary" onclick="window.location.href='../painel.php?section=relatorio'">Voltar</button>
+        <button class="btn-gerar" onclick="window.location.href='../painel.php?section=relatorio'">Voltar</button>
     </div>
 </body>
 </html>
