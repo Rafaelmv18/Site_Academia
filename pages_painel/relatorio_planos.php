@@ -1,19 +1,10 @@
 <?php
 require_once '../config.php';
 
-$con = PgSql::conectar();
+$sqlAlunos = PgSql::conectar()->query("SELECT aluno_id, (verificar_plano_ativo(aluno_id)) AS ativo FROM Aluno");
 
-$sqlAlunos = $con->query("SELECT aluno_id, (verificar_plano_ativo(aluno_id)) AS ativo FROM Aluno");
-$ativos = 0;
-$expirados = 0;
+$alunos = $sqlAlunos->fetchAll(PDO::FETCH_ASSOC);
 
-while ($row = $sqlAlunos->fetch(PDO::FETCH_ASSOC)) {
-    if ($row['ativo'] == 't') {
-        $ativos++;
-    } else {
-        $expirados++;
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,21 +15,28 @@ while ($row = $sqlAlunos->fetch(PDO::FETCH_ASSOC)) {
 </head>
 <body>
     <div class="relatorio-container">
-        <h1>Relatório de Planos Ativos x Expirados</h1>
+        <h1>Relatório de Planos por Aluno</h1>
 
         <table border="1" cellpadding="5">
-            <tr>
-                <th>Status</th>
-                <th>Quantidade</th>
-            </tr>
-            <tr>
-                <td>Ativos</td>
-                <td><?php echo $ativos; ?></td>
-            </tr>
-            <tr>
-                <td>Expirados</td>
-                <td><?php echo $expirados; ?></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Status do Plano</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                foreach ($alunos as $aluno){
+                    $usuario = Painel::select('usuario', 'usuario_id = ?', array($aluno['aluno_id']))
+                ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($usuario['nome']); ?></td>
+                        <td><?php echo htmlspecialchars($usuario['cpf']); ?></td>
+                        <td><?php echo $aluno['ativo'] == 't' ? 'Ativo' : 'Expirado'; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
 
         <br>
