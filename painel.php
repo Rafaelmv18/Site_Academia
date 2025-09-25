@@ -17,6 +17,18 @@ if (isset($_POST['cadastro'])) {
     Usuario::cadastrarUsuario($nome, $senha, $cpf, $email, $telefone, $data, $endereco, $tipo, $cargo);
 }
 
+if (isset($_POST['atualiza'])) {
+    $atualizado = Usuario::atualizarUsuario(
+        $_SESSION['usuario_id'],
+        $_POST['nome'],
+        $_POST['cpf'],
+        $_POST['email'],
+        $_POST['telefone'],
+        $_POST['nascimento'],
+        $_POST['endereco']
+    );
+}
+
 // Define o diretório de destino para as imagens
 $uploadDir = 'img/';
 
@@ -138,6 +150,12 @@ if (isset($_POST['excluirModalidade'])) {
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="dados" class="nav-link" data-section="dados">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Dados</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>>
                         <a href="cadastro" class="nav-link" data-section="cadastro">
                             <i class="fa-solid fa-users-between-lines"></i>
                             <span>Cadastro</span>

@@ -3,7 +3,7 @@
         <div class="sobre-intro">
             <h1>Nossa História, Seu Resultado</h1>
             <p>
-                A Academia X nasceu com um propósito: transformar a sua rotina através
+                A SPIKE GYM nasceu com um propósito: transformar a sua rotina através
                 de treinos eficientes, acompanhamento profissional e um ambiente que inspira evolução. 
                 Investimos em equipamentos modernos e em uma equipe comprometida com o seu sucesso.
             </p>

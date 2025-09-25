@@ -24,7 +24,7 @@
     ?>
     <header>
         <div class="center">
-            <div class="logo"><a href="?url=planos">LOGO</a></div><!--logo-->
+            <div class="logo"><a href="?url=planos">SPIKE GYM</a></div><!--logo-->
             <nav>
                 <ul>
                     <li><a href="?url=sobre">Sobre Nós</a></li>
@@ -61,10 +61,10 @@
     <footer>
         <div class="footer-container">
             <div class="footer-info">
-                <h3>Academia X</h3>
+                <h3>SPIKE GYM</h3>
                 <p>Rua Exemplo, 123 - Cidade/UF</p>
                 <p><i class="fa-solid fa-phone"></i> (99) 99999-9999</p>
-                <p><i class="fa-regular fa-envelope"></i> contato@academia.com</p>
+                <p><i class="fa-regular fa-envelope"></i> spikegym@academia.com</p>
             </div><!--footer-info-->
 
             <div class="footer-links">
@@ -82,7 +82,7 @@
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>  
             </div><!--footer-social-->
         </div><!--footer-container-->
-        <p class="footer-copy">© 2025 Academia X. Todos os direitos reservados.</p>
+        <p class="footer-copy">© 2025 SPIKE GYM. Todos os direitos reservados.</p>
     </footer>
 
 </body>

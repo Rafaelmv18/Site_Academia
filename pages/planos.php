@@ -5,7 +5,7 @@ $planos = Painel::selectAll('plano', 'plano_id', 'ASC');
 <section class="sobre">
     <h2>Transforme Seu Corpo e Mente</h2>
     <p>
-        Na Academia X, acreditamos que a atividade física é a chave para uma vida plena. Oferecemos uma estrutura moderna, equipamentos de ponta e uma equipe de profissionais apaixonados, prontos para guiar você em sua jornada de transformação, seja qual for o seu objetivo.
+        Na SPIKE GYM, acreditamos que a atividade física é a chave para uma vida plena. Oferecemos uma estrutura moderna, equipamentos de ponta e uma equipe de profissionais apaixonados, prontos para guiar você em sua jornada de transformação, seja qual for o seu objetivo.
     </p>
     <p>
         Explore nossas modalidades, da musculação intensa às aulas de Fit Dance e Pilates que relaxam e fortalecem. Venha descobrir a sua melhor versão em um ambiente motivador e acolhedor.

@@ -44,7 +44,10 @@ require('../config.php');
                 <label for="tipo">Tipo</label>
                 <select id="tipo" name="tipo">
                     <option value="0">Aluno</option>
-                    <option value="1">Funcionário</option>
+                    <option value="1">Professor</option>
+                    <option value="2">Recepcionista</option>
+                    <option value="3">Gerente</option>
+                    <option value="4">Zelador</option>
                 </select>
             </div>
 
