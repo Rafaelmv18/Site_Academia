@@ -18,14 +18,14 @@ $alunos = $sqlAlunos->fetchAll(PDO::FETCH_ASSOC);
         <h1>Relatório de Planos por Aluno</h1>
 
         <table border="1" cellpadding="5">
-            <thead>
+
                 <tr>
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Status do Plano</th>
                 </tr>
-            </thead>
-            <tbody>
+ 
+
                 <?php 
                 foreach ($alunos as $aluno){
                     $usuario = Painel::select('usuario', 'usuario_id = ?', array($aluno['aluno_id']))
@@ -36,7 +36,7 @@ $alunos = $sqlAlunos->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $aluno['ativo'] == 't' ? 'Ativo' : 'Expirado'; ?></td>
                     </tr>
                 <?php } ?>
-            </tbody>
+
         </table>
 
         <br>
