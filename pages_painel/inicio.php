@@ -5,6 +5,9 @@
     $dias_para_vencer = 18;
     $aluno = Painel::select('aluno', 'aluno_id=?', array($_SESSION['usuario_id']));
     $plano = Painel::select('plano', 'plano_id=?', array($aluno['plano_id']));
+    $cpf_limpo = preg_replace('/[^\d]/', '', $_SESSION['cpf']);
+    $digitos_visiveis = substr($cpf_limpo, 3, 3);
+    $cpf_mascarado = '***.' . $digitos_visiveis . '.***-**';
 ?>
 
 <section class="dashboard-home">

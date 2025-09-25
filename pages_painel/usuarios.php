@@ -1,6 +1,5 @@
 <?php
     require_once '../config.php'; 
-
     $usuarios = Painel::selectAll('usuario', 'usuario_id', 'ASC');
 ?>
 <section>
@@ -10,7 +9,6 @@
         <!-- Pesquisa -->
         <div class="search-box-usuario">
             <input id="cpfInput" type="text" placeholder="Digite o CPF (apenas números)" maxlength="14" />
-            <button id="searchBtn" class="btn-primary">Buscar</button>
         </div>
 
         <!-- Resultado -->
@@ -34,14 +32,15 @@
                             } else {
                                 echo 'Funcionario';
                             } 
-                        }?>
-
-                        
+                        } else {
+                            echo 'Sem plano';
+                        }
+                        ?>
                     </span>
                 </div>
             <?php } ?>
         </div>
-        <p id="noResultsMessage" style="display: none;">Nenhum usuário encontrado.</p>
+        <!-- <p id="noResultsMessage" style="display: none;">Nenhum usuário encontrado.</p> -->
     </div>
 </section>
-<script src="../js/busca.js"></script>
+<script src="js/busca.js"></script> 

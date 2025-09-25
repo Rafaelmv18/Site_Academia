@@ -32,6 +32,27 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(html => {
                 contentArea.innerHTML = html;
 
+                const scripts = contentArea.querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    
+                    // Copia os atributos importantes (como src)
+                    Array.from(oldScript.attributes).forEach(attr => {
+                        newScript.setAttribute(attr.name, attr.value);
+                    });
+
+                    // Copia o conteúdo para scripts inline
+                    if (oldScript.textContent) {
+                        newScript.textContent = oldScript.textContent;
+                    }
+
+                    // Remove o script antigo do HTML injetado para não ficar duplicado
+                    oldScript.parentNode.removeChild(oldScript);
+
+                    // Adiciona o novo script ao final do body para que seja executado
+                    document.body.appendChild(newScript);
+                });
+
                 // Atualiza título da página
                 pageTitle.textContent = link.querySelector("span").innerText;
 

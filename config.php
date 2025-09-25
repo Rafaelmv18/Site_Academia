@@ -7,11 +7,6 @@ spl_autoload_register($autoload);
 
 define('INCLUDE_PATH','https://localhost/Site_Academia/');
 
-$cpf_limpo = preg_replace('/[^\d]/', '', $_SESSION['cpf']);
-$digitos_visiveis = substr($cpf_limpo, 3, 3);
-$cpf_mascarado = '***.' . $digitos_visiveis . '.***-**';
-
-
 function verificaPermissao($permissao){
     if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] < $permissao){
         // Bloqueia usuário
