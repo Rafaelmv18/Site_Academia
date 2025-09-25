@@ -50,3 +50,88 @@
 .relatorios button {
     margin-left: 15px; 
 }
+
+/* --- CONTAINER DO RELATÓRIO --- */
+
+body{
+    background: #1a1a1a;
+}
+
+.relatorio-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #2c2c2c;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeIn 0.5s ease-out;
+}
+
+
+/* --- TÍTULOS E TEXTOS --- */
+.relatorio-container h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+}
+
+/* --- TABELAS --- */
+.relatorio-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+
+.relatorio-container th{
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    vertical-align: middle; 
+    background: #a3a3a3;
+}
+
+.relatorio-container td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+    vertical-align: middle; 
+    background: #fff;
+}
+
+/* Estilo do cabeçalho da tabela */
+.relatorio-container thead th {
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* --- BOTÃO --- */
+.btn-primary{
+    flex: 1; /* faz os dois ficarem do mesmo tamanho */
+    background: var(--cor-primaria);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    background: #f39c12;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(209, 84, 0, 0.3);
+}

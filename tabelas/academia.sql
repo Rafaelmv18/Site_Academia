@@ -1,223 +1,242 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 14/09/2025 às 20:30
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- ================================
+-- TABELAS
+-- ================================
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+-- 1. Usuário
+CREATE TABLE Usuario (
+    usuario_id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    CPF VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    telefone VARCHAR(20),
+    data_nascimento DATE,
+    endereco TEXT,
+    tipo_usuario int, -- 0 = aluno, 1 = funcionário, 2 = Recepcionista, 3= Gerente, 4 = Outro
+    cargo SMALLINT CHECK (cargo IN (0, 1)), -- 0 = normal, 1 = admin
+    status VARCHAR(10) DEFAULT 'ativo'
+);
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- 4. Plano (precisa existir antes de Aluno)
+CREATE TABLE Plano (
+    plano_id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    valor DECIMAL(10,2) NOT NULL
+);
 
---
--- Banco de dados: `academia`
---
+-- 2. Aluno (extensão de Usuário)
+CREATE TABLE Aluno (
+    aluno_id INT PRIMARY KEY REFERENCES Usuario(usuario_id) ON DELETE CASCADE,
+    plano_id INT REFERENCES Plano(plano_id),
+    data_inicio_plano DATE,
+    data_fim_plano DATE
+);
 
--- --------------------------------------------------------
+-- 3. Funcionário (extensão de Usuário)
+CREATE TABLE Funcionario (
+    funcionario_id INT PRIMARY KEY REFERENCES Usuario(usuario_id) ON DELETE CASCADE,
+    cargo VARCHAR(50) NOT NULL
+);
 
---
--- Estrutura para tabela `tb_aluno`
---
+-- 5. Pagamento
+CREATE TABLE Pagamento (
+    pagamento_id SERIAL PRIMARY KEY,
+    aluno_id INT REFERENCES Aluno(aluno_id) ON DELETE CASCADE,
+    valor DECIMAL(10,2) NOT NULL,
+    forma_pagamento VARCHAR(20) CHECK (forma_pagamento IN ('cartão', 'boleto', 'pix', 'dinheiro')),
+    data_pagamento DATE NOT NULL,
+    status VARCHAR(20) DEFAULT 'pendente'
+);
 
-CREATE TABLE `tb_aluno` (
-  `aluno_id` int(11) NOT NULL,
-  `plano_id` int(11) NOT NULL,
-  `data_inicio_plano` date NOT NULL,
-  `data_fim_plano` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- 6. Modalidade
+CREATE TABLE Modalidade (
+    modalidade_id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    horarios JSONB,
+    imagem VARCHAR(255)
+);
 
--- --------------------------------------------------------
+-- 7. Entrada (Controle de Acesso)
+CREATE TABLE Entrada (
+    entrada_id SERIAL PRIMARY KEY,
+    aluno_id INT REFERENCES Aluno(aluno_id) ON DELETE CASCADE,
+    data_hora_entrada TIMESTAMP NOT NULL,
+    data_hora_saida TIMESTAMP
+);
 
---
--- Estrutura para tabela `tb_entrada`
---
+-- 8. Agendamentos (Modalidades)
+CREATE TABLE Agendamento (
+    agendamento_id SERIAL PRIMARY KEY,
+    modalidade_id INT REFERENCES Modalidade(modalidade_id) ON DELETE CASCADE,
+    aluno_id INT REFERENCES Aluno(aluno_id) ON DELETE CASCADE,
+    data TIMESTAMP NOT NULL
+);
 
-CREATE TABLE `tb_entrada` (
-  `entrada_id` int(11) NOT NULL,
-  `aluno_id` int(11) NOT NULL,
-  `data_hora_entrada` datetime NOT NULL,
-  `data_hora_saida` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- ================================
+-- INSERÇÃO DE DADOS
+-- ================================
 
--- --------------------------------------------------------
+-- Aluno
+INSERT INTO Usuario (nome, senha, CPF, email, telefone, data_nascimento, endereco, tipo_usuario, cargo)
+VALUES ('João Silva', '123456', '123.456.789-00', 'joao@email.com', '11999999999', '1995-05-10', 'Rua A, 123', 0, 0);
+-- Funcionário
+INSERT INTO Usuario (nome, senha, CPF, email, telefone, data_nascimento, endereco, tipo_usuario, cargo)
+VALUES ('Carlos Pereira', 'senha123', '321.654.987-00', 'carlos@email.com', '11911112222', '2000-07-22', 'Av. das Flores, 789', 2,0);
 
---
--- Estrutura para tabela `tb_funcionario`
---
+-- Funcionário
+INSERT INTO Usuario (nome, senha, CPF, email, telefone, data_nascimento, endereco, tipo_usuario, cargo)
+VALUES ('Maria Souza', '654321', '987.654.321-00', 'maria@email.com', '11888888888', '1988-03-15', 'Rua B, 456', 1, 1);
+-- Aluno
+INSERT INTO Usuario (nome, senha, CPF, email, telefone, data_nascimento, endereco, tipo_usuario, cargo)
+VALUES ('Ana Oliveira', 'senha456', '654.987.321-11', 'ana@email.com', '11777776666', '1992-11-05', 'Rua Central, 101', 0, 1);
 
-CREATE TABLE `tb_funcionario` (
-  `funcionario_id` int(11) NOT NULL,
-  `cargo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Plano
+INSERT INTO Plano (nome, descricao, valor, detalhes)
+VALUES ('Plano Básico', 'Plano Básico', 79.90, '{"aulas": "musculação, funcional"}');
 
--- --------------------------------------------------------
+INSERT INTO Plano (nome, descricao, valor, detalhes)
+VALUES ('Anual Plano Plus', 'Anual Plano Plus', 109.90, '{"aulas": "todas", "personal": true}');
 
---
--- Estrutura para tabela `tb_modalidade`
---
+INSERT INTO Plano (nome, descricao, valor, detalhes)
+VALUES ('Anual Premium', 'Anual Plano Plus', 159.90, '{"aulas": "todas", "personal": true}');
 
-CREATE TABLE `tb_modalidade` (
-  `modalidade_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `descricao` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+UPDATE Aluno
+SET plano_id = 1, data_inicio_plano = CURRENT_DATE, data_fim_plano = CURRENT_DATE + INTERVAL '30 days'
+WHERE aluno_id = 1;
 
--- --------------------------------------------------------
+-- Pagamento pendente
+INSERT INTO Pagamento (aluno_id, valor, forma_pagamento, data_pagamento, status)
+VALUES (1, 120.00, 'pix', CURRENT_DATE, 'pendente');
 
---
--- Estrutura para tabela `tb_pagamento`
---
+-- Pagamento pago
+INSERT INTO Pagamento (aluno_id, valor, forma_pagamento, data_pagamento, status)
+VALUES (4, 120.00, 'cartão', CURRENT_DATE, 'pago');
 
-CREATE TABLE `tb_pagamento` (
-  `pagamento_id` int(11) NOT NULL,
-  `aluno_id` int(11) NOT NULL,
-  `valor` float NOT NULL,
-  `forma_pagamento` int(11) NOT NULL,
-  `data_pagamento` datetime NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO Modalidade (nome, descricao, horarios, imagem)
+VALUES ('Musculação', 'Treino de força e resistência', 'Seg-Sex: 06h-22h', 'musculacao.jpg');
 
--- --------------------------------------------------------
+INSERT INTO Modalidade (nome, descricao, horarios, imagem)
+VALUES ('Crossfit', 'Alta intensidade', 'Seg-Sáb: 07h-20h', 'crossfit.jpg');
 
---
--- Estrutura para tabela `tb_plano`
---
+INSERT INTO Entrada (aluno_id, data_hora_entrada)
+VALUES (1, NOW());
 
-CREATE TABLE `tb_plano` (
-  `plano_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `descricao` text NOT NULL,
-  `valor` decimal(10,2) NOT NULL,
-  `duracao` varchar(50) NOT NULL,
-  `limite_acesso` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO Entrada (aluno_id, data_hora_entrada)
+VALUES (4, NOW());
 
--- --------------------------------------------------------
+-- Quando sair:
+UPDATE Entrada
+SET data_hora_saida = NOW()
+WHERE entrada_id = 1;
 
---
--- Estrutura para tabela `tb_professor`
---
+UPDATE Entrada
+SET data_hora_saida = NOW()
+WHERE entrada_id = 4;
 
-CREATE TABLE `tb_professor` (
-  `professor_id` int(11) NOT NULL,
-  `especialidade` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO Agendamento (modalidade_id, aluno_id, data)
+VALUES (2, 1, '2025-09-25 18:00:00');
 
--- --------------------------------------------------------
+INSERT INTO Agendamento (modalidade_id, aluno_id, data) 
+VALUES (1, 4, '2025-10-22 07:00:00');
 
---
--- Estrutura para tabela `tb_usuario`
---
+-- Deletar agendamento
+DELETE FROM Agendamento WHERE agendamento_id = 1;
 
-CREATE TABLE `tb_usuario` (
-  `usuario_id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `cpf` varchar(14) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `telefone` varchar(20) NOT NULL,
-  `data_nascimento` date NOT NULL,
-  `endereco` varchar(255) NOT NULL,
-  `tipo_usuario` int(11) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Deletar entrada
+DELETE FROM Entrada WHERE entrada_id = 1;
 
---
--- Índices para tabelas despejadas
---
+-- Deletar pagamento (vai registrar na auditoria)
+DELETE FROM Pagamento WHERE pagamento_id = 2;
 
---
--- Índices de tabela `tb_aluno`
---
-ALTER TABLE `tb_aluno`
-  ADD PRIMARY KEY (`aluno_id`);
+-- Deletar aluno (vai remover em cascata os pagamentos e entradas dele)
+DELETE FROM Usuario WHERE usuario_id = 1;
 
---
--- Índices de tabela `tb_entrada`
---
-ALTER TABLE `tb_entrada`
-  ADD PRIMARY KEY (`entrada_id`);
 
---
--- Índices de tabela `tb_funcionario`
---
-ALTER TABLE `tb_funcionario`
-  ADD PRIMARY KEY (`funcionario_id`);
+-- ================================
+-- TRIGGER DE AUDITORIA
+-- ================================
 
---
--- Índices de tabela `tb_modalidade`
---
-ALTER TABLE `tb_modalidade`
-  ADD PRIMARY KEY (`modalidade_id`);
+CREATE OR REPLACE FUNCTION funcionario_aluno()
+RETURNS TRIGGER AS $$
+DECLARE
+    cargo_texto TEXT;
+BEGIN
+    -- Se tipo_usuario é 0, insere na tabela Aluno
+    IF NEW.tipo_usuario = 0 THEN
+        INSERT INTO aluno (aluno_id)
+        VALUES (NEW.usuario_id)
+        ON CONFLICT (aluno_id) DO NOTHING;
 
---
--- Índices de tabela `tb_pagamento`
---
-ALTER TABLE `tb_pagamento`
-  ADD PRIMARY KEY (`pagamento_id`);
+    -- Se for qualquer outro tipo, é um funcionário
+    ELSIF NEW.tipo_usuario > 0 THEN
+        IF NEW.tipo_usuario = 1 THEN
+            cargo_texto := 'Professor';
+        ELSIF NEW.tipo_usuario = 2 THEN
+            cargo_texto := 'Recepcionista';
+        ELSIF NEW.tipo_usuario = 3 THEN
+            cargo_texto := 'Gerente';
+        ELSIF NEW.tipo_usuario = 4 THEN
+            cargo_texto := 'Zelador';
+        ELSE
+            cargo_texto := 'Outro';
+        END IF;
 
---
--- Índices de tabela `tb_plano`
---
-ALTER TABLE `tb_plano`
-  ADD PRIMARY KEY (`plano_id`);
+        INSERT INTO funcionario (funcionario_id, cargo)
+        VALUES (NEW.usuario_id, cargo_texto)
+        ON CONFLICT (funcionario_id) DO NOTHING;
+    END IF;
 
---
--- Índices de tabela `tb_professor`
---
-ALTER TABLE `tb_professor`
-  ADD PRIMARY KEY (`professor_id`);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
---
--- Índices de tabela `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  ADD PRIMARY KEY (`usuario_id`),
-  ADD UNIQUE KEY `CPF` (`cpf`),
-  ADD UNIQUE KEY `email` (`email`);
+CREATE TRIGGER trg_funcionario_aluno
+AFTER INSERT ON Usuario
+FOR EACH ROW EXECUTE FUNCTION funcionario_aluno();
 
---
--- AUTO_INCREMENT para tabelas despejadas
---
+-- ================================
+-- FUNCTION DE REGRA DE NEGÓCIO
+-- ================================
+CREATE OR REPLACE FUNCTION verificar_plano_ativo(p_aluno_id INT)
+RETURNS BOOLEAN AS $$
+DECLARE
+    fim DATE;
+BEGIN
+    SELECT data_fim_plano INTO fim
+    FROM Aluno
+    WHERE aluno_id = p_aluno_id;
 
---
--- AUTO_INCREMENT de tabela `tb_entrada`
---
-ALTER TABLE `tb_entrada`
-  MODIFY `entrada_id` int(11) NOT NULL AUTO_INCREMENT;
+    IF fim IS NULL OR fim >= CURRENT_DATE THEN
+        RETURN TRUE; -- Plano ativo
+    ELSE
+        RETURN FALSE; -- Plano expirado
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
 
---
--- AUTO_INCREMENT de tabela `tb_modalidade`
---
-ALTER TABLE `tb_modalidade`
-  MODIFY `modalidade_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de tabela `tb_pagamento`
---
-ALTER TABLE `tb_pagamento`
-  MODIFY `pagamento_id` int(11) NOT NULL AUTO_INCREMENT;
+-- ================================
+-- VIEW PARA RELATÓRIO
+-- ================================
 
---
--- AUTO_INCREMENT de tabela `tb_plano`
---
-ALTER TABLE `tb_plano`
-  MODIFY `plano_id` int(11) NOT NULL AUTO_INCREMENT;
+CREATE OR REPLACE VIEW vw_entradas_mes AS
+SELECT 
+    u.nome AS nome_aluno,
+    u.CPF, -- Adicionamos a nova coluna aqui
+    e.data_hora_entrada,
+    e.data_hora_saida,
+    (e.data_hora_saida - e.data_hora_entrada) AS duracao
+FROM 
+    Entrada AS e
+JOIN 
+    Aluno AS a ON e.aluno_id = a.aluno_id
+JOIN 
+    Usuario AS u ON a.aluno_id = u.usuario_id
+WHERE 
+    DATE_TRUNC('month', e.data_hora_entrada) = DATE_TRUNC('month', NOW())
+ORDER BY 
+    e.data_hora_entrada DESC;
 
---
--- AUTO_INCREMENT de tabela `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

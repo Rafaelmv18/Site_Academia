@@ -1,3 +1,8 @@
+<?php
+    require_once 'config.php'; 
+    $usuarios = Painel::selectAll('usuario', 'usuario_id', 'ASC');
+    $funcionarios = Painel::selectAll('funcionario', 'funcionario_id', 'ASC');
+?>
 <section class="sobre">
     <div class="sobre-inner">
         <div class="sobre-intro">
@@ -7,7 +12,6 @@
                 de treinos eficientes, acompanhamento profissional e um ambiente que inspira evolução. 
                 Investimos em equipamentos modernos e em uma equipe comprometida com o seu sucesso.
             </p>
-            <a class="btn-cta btn-primary" href="./login.php">Matricular</a>
         </div>
 
         <div class="sobre-values">
@@ -40,21 +44,21 @@
         <div class="sobre-team">
             <h2>Nossa Equipe</h2>
             <div class="team-grid">
+                <?php 
+                foreach ($funcionarios as $funcionario){
+                    foreach ($usuarios as $usuario){
+                        if($funcionario['funcionario_id'] == $usuario['usuario_id']){
+                ?>
                 <div class="team-member">
-                    <img src="img/treinador.jpg" alt="Treinador João">
-                    <h4>João Silva</h4>
-                    <p>Personal Trainer • Especialista em Hipertrofia</p>
+                    <img src="img/treinador.png" alt="Foto de <?php echo $usuario['nome']; ?>">
+                    <h4><?php echo $usuario['nome']; ?></h4>
+                    <p><?php echo $funcionario['cargo']; ?></p>
                 </div>
-                <div class="team-member">
-                    <img src="img/treinador.jpg" alt="Treinadora Maria">
-                    <h4>Maria Oliveira</h4>
-                    <p>Instrutora • Aulas Coletivas e Condicionamento</p>
-                </div>
-                <div class="team-member">
-                    <img src="img/treinador.jpg" alt="Treinador Carlos">
-                    <h4>Carlos Santos</h4>
-                    <p>Fisiologista • Avaliação Física e Reabilitação</p>
-                </div>
+                <?php 
+                        }
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>

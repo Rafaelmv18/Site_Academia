@@ -14,12 +14,22 @@ require_once '../config.php';
 
         <div class="relatorio-item">
             <h2>Frequência dos Alunos</h2>
-            <button class="btn btn-primary">Gerar</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Site_Academia/pages_painel/relatorio_frequencia.php'">Gerar</button>
         </div>
 
         <div class="relatorio-item">
             <h2>Ocupação das Modalidades</h2>
-            <button class="btn btn-primary">Gerar</button>
+            <button class="btn btn-primary" onclick="window.location.href='/Site_Academia/pages_painel/relatorio_ocupacao.php'">Gerar</button>
+        </div>
+
+        <div class="relatorio-item">
+            <h2>Planos Ativos x Expirados</h2>
+                <button class="btn btn-primary" onclick="window.location.href='/Site_Academia/pages_painel/relatorio_planos.php'">Gerar Planos</button>
+        </div>
+
+        <div class="relatorio-item">
+            <h2>Entradas no Mês</h2>
+            <button class="btn btn-primary" onclick="window.location.href='/Site_Academia/pages_painel/relatorio_entradas.php'">Gerar</button>
         </div>
         
     </section>
