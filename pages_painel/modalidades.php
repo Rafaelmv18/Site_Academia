@@ -12,17 +12,32 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
                 <input type="hidden" name="modalidade_id" value="<?php echo $modalidade['modalidade_id'] ?>">
                 <input type="hidden" name="imagem_atual" value="<?php echo $modalidade['imagem'] ?>">
                 <label>Nome:</label>
-                <input type="text" name="nome" value="<?php echo $modalidade['nome'] ?>" required><br><br>
+                <input type="text" name="nome" value="<?php echo $modalidade['nome'] ?>" required><br>
 
-                <label>Descrição:</label><br>
-                <textarea name="descricao" rows="3"><?php echo $modalidade['descricao'] ?></textarea><br><br>
-
+                <label>Descrição:</label>
+                <textarea name="descricao" rows="3"><?php echo $modalidade['descricao'] ?></textarea><br>
                 <label>Horários:</label>
-                <textarea class="horario" name="horarios" rows="3"><?php echo $modalidade['horarios'] ?></textarea><br><br>
-
-                <label>Imagem:</label>
-                <input type="file" name="imagem"><br><br>
-
+                <?php
+                    // LÓGICA MOVIDA PARA DENTRO DO LOOP
+                    $horariosJson = $modalidade['horarios'] ?? '[]';
+                    $horariosArray = json_decode($horariosJson, true);
+                    $primeiroHorario = $horariosArray[0] ?? ['dia' => '', 'inicio' => '', 'fim' => ''];
+                ?>
+                <div class="horarios-editor-simples">
+                    <input type="text" name="horario_dia" class="horario-dia" 
+                           value="<?php echo $primeiroHorario['dia']; ?>" 
+                           placeholder="Dia (ex: Segunda a Sexta)">
+                    <input type="time" name="horario_inicio" class="horario-inicio" 
+                           value="<?php echo $primeiroHorario['inicio']; ?>">
+                    <span>às</span>
+                    <input type="time" name="horario_fim" class="horario-fim" 
+                           value="<?php echo $primeiroHorario['fim']; ?>">
+                </div>
+                <br>
+                <div class="file-input-container">
+                    <label>Imagem:</label>
+                    <input type="file" name="imagem"><br>
+                </div>
                 <p>Imagem Atual:</p>
                 <img src="<?php echo $modalidade['imagem'] ?>" alt="Preview" style="max-width:100%; border-radius:8px; margin:10px 0;">
 
@@ -39,17 +54,23 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
 
         <form method="post" enctype="multipart/form-data" class="modalidade-form" style="border:2px dashed #999; padding:15px; border-radius:10px;">
             <label>Nome:</label>
-            <input type="text" name="nome" placeholder="Digite o nome" required><br><br>
+            <input type="text" name="nome" placeholder="Digite o nome" required><br>
 
             <label>Descrição:</label><br>
-            <textarea name="descricao" rows="3" placeholder="Digite a descrição"></textarea><br><br>
+            <textarea name="descricao" rows="3" placeholder="Digite a descrição"></textarea><br>
 
-            <label>Horários:</label>
-            <textarea name="horarios" rows="4" placeholder="Ex: [{'dia': 'Terça', 'fim': '10:00', 'inicio': '08:00'}]"></textarea><br><br>
-
-            <label>Imagem:</label>
-            <input type="file" name="imagem"><br><br>
-
+            <label>Horário:</label>
+            <div class="horarios-editor-simples">
+                <input type="text" name="horario_dia" class="horario-dia" placeholder="Dia (ex: Segunda a Sexta)">
+                <input type="time" name="horario_inicio" class="horario-inicio">
+                <span>às</span>
+                <input type="time" name="horario_fim" class="horario-fim">
+            </div>
+            <br>
+            <div class="file-input-container">
+                <label>Imagem:</label>
+                <input type="file" name="imagem"><br><br>
+            </div>
             <button type="submit" name="cadastrarModalidade" value="cadastrar" style="width:100%; padding:10px; border:none; background:#2980b9; color:white; border-radius:5px; cursor:pointer;">
                 Cadastrar
             </button>

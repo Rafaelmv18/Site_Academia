@@ -73,6 +73,114 @@
     resize: vertical;
 }
 
+/* --- COMPONENTE DE HORÁRIOS (LAYOUT VERTICAL APENAS COM CSS) --- */
+
+/* Container principal: agora com 'flex-wrap' para permitir a quebra de linha */
+.horarios-editor-simples {
+    display: flex;
+    flex-wrap: wrap; /* A propriedade chave para a quebra de linha */
+    align-items: center;
+    gap: 10px; /* Espaço entre as linhas e os elementos */
+
+    max-width: 280px; /* Largura reduzida, como pedido */
+    margin-bottom: 15px;
+
+    background: #3a3a3a;
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.2s ease;
+}
+
+/* Efeito de foco no container inteiro */
+.horarios-editor-simples:focus-within {
+    border-color: #f39c12;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.25);
+}
+
+/* Estilo base para TODOS os inputs dentro do container */
+.horarios-editor-simples input {
+    padding: 8px 3px;
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    background: #2d2d2d;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Input de Dia: Forçamos a ocupar 100% da largura para criar a primeira linha */
+.horarios-editor-simples .horario-dia {
+    flex: 1 1 100%; /* Ocupa a linha inteira */
+}
+
+/* Inputs de Tempo: Fazemos eles dividirem o espaço na segunda linha */
+.horarios-editor-simples .horario-inicio,
+.horarios-editor-simples .horario-fim {
+    flex: 1; /* Divide o espaço restante igualmente */
+    min-width: 80px; /* Garante uma largura mínima */
+}
+
+/* Estilo para o texto "às" */
+.horarios-editor-simples span {
+    color: #b0b0b0;
+}
+
+/* Ícone de relógio do input de tempo */
+.horarios-editor-simples input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+    cursor: pointer;
+}
+
+/* --- ESTILIZAÇÃO PARA INPUT DE ARQUIVO (SEM ALTERAR HTML) --- */
+
+/* Container para o input de arquivo */
+.file-input-container {
+    margin-bottom: 15px;
+}
+
+.file-input-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #b0b0b0; /* --text-gray */
+    font-size: 0.9rem;
+}
+
+/* Estilizando o input de arquivo */
+.file-input-container input[type="file"] {
+    width: 100%;
+    color: #b0b0b0; /* Cor do texto "Nenhum arquivo selecionado" */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+}
+
+/* --- A MÁGICA ACONTECE AQUI --- */
+/* Estilizando o BOTÃO "Procurar..." em navegadores WebKit (Chrome, Edge, Safari) */
+.file-input-container input[type="file"]::-webkit-file-upload-button {
+    /* Remove a aparência padrão do navegador */
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* Nossos estilos personalizados */
+    background: #3a3a3a; /* --dark-gray */
+    color: #e0e0e0; /* --cor-texto-secundario-escuro */
+    border: 1px solid #4a4a4a; /* --medium-gray */
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-right: 15px; /* Espaço entre o botão e o nome do arquivo */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efeito hover para o botão */
+.file-input-container input[type="file"]::-webkit-file-upload-button:hover {
+    background: #4a4a4a; /* --medium-gray */
+    color: #ffffff;
+    border-color: #6a6a6a; /* --light-gray */
+}
+
 .modalidade-form input[type="text"]:focus,
 .modalidade-form textarea:focus {
     border-color: var(--orange-accent);

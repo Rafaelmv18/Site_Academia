@@ -36,7 +36,11 @@ $uploadDir = 'img/';
 if (isset($_POST['cadastrarModalidade'])) {
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
-    $horarios = $_POST['horarios'];
+    $horario_dia = $_POST['horario_dia'] ?? '';
+    $horario_inicio = $_POST['horario_inicio'] ?? '';
+    $horario_fim = $_POST['horario_fim'] ?? '';
+    $horariosArray = [['dia' => $horario_dia, 'inicio' => $horario_inicio, 'fim' => $horario_fim]];
+    $horariosJson = json_encode($horariosArray);
     $imagemPath = ''; // Valor padrão
 
     // Verifica se uma imagem foi enviada
@@ -49,7 +53,7 @@ if (isset($_POST['cadastrarModalidade'])) {
         }
     }
 
-    Modalidade::cadastrarModalidade($nome, $descricao, $horarios, $imagemPath);
+    Modalidade::cadastrarModalidade($nome, $descricao, $horariosJson, $imagemPath);
     // Sugestão: Adicionar alerta e redirect aqui.
 }
 
@@ -58,9 +62,23 @@ if (isset($_POST['atualizarModalidade'])) {
     $id = $_POST['modalidade_id'];
     $nome = $_POST['nome'];
     $descricao = $_POST['descricao'];
-    $horarios = $_POST['horarios'];
-    // Pega o caminho da imagem atual do formulário (input hidden)
     $imagemPath = $_POST['imagem_atual'];
+
+    // 1. Pega os dados dos campos de horário individuais
+    $dia = $_POST['horario_dia'] ?? '';
+    $inicio = $_POST['horario_inicio'] ?? '';
+    $fim = $_POST['horario_fim'] ?? '';
+
+    // 2. Monta um array PHP com a estrutura do JSON
+    $horarioParaSalvar = [
+        [
+            'dia' => $dia,
+            'inicio' => $inicio,
+            'fim' => $fim
+        ]
+    ];
+    // 3. Converte o array PHP para uma string JSON
+    $horariosJsonParaSalvar = json_encode($horarioParaSalvar);
 
     // Verifica se uma NOVA imagem foi enviada para substituir a antiga
     if (isset($_FILES['imagem']) && !empty($_FILES['imagem']['name']) && $_FILES['imagem']['error'] == 0) {
@@ -78,7 +96,7 @@ if (isset($_POST['atualizarModalidade'])) {
         }
     }
 
-    Modalidade::atualizarModalidade($id, $nome, $descricao, $horarios, $imagemPath);
+    Modalidade::atualizarModalidade($id, $nome, $descricao, $horariosJsonParaSalvar, $imagemPath);
     // Sugestão: Adicionar alerta e redirect aqui.
 }
 
@@ -102,7 +120,7 @@ if (isset($_POST['excluirModalidade'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia</title>
+    <title>SPIKE GYM</title>
     <link rel="stylesheet" href="style_painel/painel.css">
 
     <link rel="stylesheet" href="style_painel/inicio.css">
@@ -117,6 +135,9 @@ if (isset($_POST['excluirModalidade'])) {
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="%23FFD43B"><path d="M104 96h24V64c0-17.7 14.3-32 32-32s32 14.3 32 32v32h256V64c0-17.7 14.3-32 32-32s32 14.3 32 32v32h24c13.3 0 24 10.7 24 24v272c0 13.3-10.7 24-24 24h-24v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H192v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H104c-13.3 0-24-10.7-24-24V120c0-13.3 10.7-24 24-24z"/></svg>'>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/modalidade.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
