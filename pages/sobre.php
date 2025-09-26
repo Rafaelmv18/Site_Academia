@@ -34,9 +34,11 @@
 
         <div class="sobre-card-container">
             <div class="card">
-                <div class="card-front">
-                    <img src="img/academia_interna.jpeg" alt="Estrutura da Academia" class="card-image">
-                    <div class="card-title">Estrutura moderna e equipada</div>
+                <div id="slide" class="slideshow">
+                    <div style="background-image: url('img/academia_frente.png');" class="banner-single"></div>
+                    <div style="background-image: url('img/academia_interna.png');" class="banner-single"></div>
+                    <div style="background-image: url('img/academia_VistaDeCima.png');" class="banner-single"></div>
+                    <div class="bullets"></div>
                 </div>
             </div>
         </div>
@@ -48,13 +50,15 @@
                 foreach ($funcionarios as $funcionario){
                     foreach ($usuarios as $usuario){
                         if($funcionario['funcionario_id'] == $usuario['usuario_id']){
+                            if($funcionario['cargo'] == 'Professor'){
                 ?>
-                <div class="team-member">
-                    <img src="img/treinador.png" alt="Foto de <?php echo $usuario['nome']; ?>">
-                    <h4><?php echo $usuario['nome']; ?></h4>
-                    <p><?php echo $funcionario['cargo']; ?></p>
-                </div>
-                <?php 
+                                <div class="team-member">
+                                    <img src="img/treinador.png" alt="Foto de <?php echo $usuario['nome']; ?>">
+                                    <h4><?php echo $usuario['nome']; ?></h4>
+                                    <p><?php echo $funcionario['cargo']; ?></p>
+                                </div>
+                <?php   
+                            }
                         }
                     }
                 }

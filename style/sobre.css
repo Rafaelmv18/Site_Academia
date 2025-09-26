@@ -103,22 +103,52 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.sobre-card-container .card-front { 
-    position: relative; 
+/* --- SLIDESHOW COM BACKGROUND IMAGE E BULLETS --- */
+.slideshow {
+    position: relative;
     width: 100%;
-    aspect-ratio: 16 / 7; /* Mais moderno que altura fixa */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.card-image { 
-    position: absolute; 
-    inset: 0; 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: transform .6s ease;
+.banner-single {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: none; /* Começam escondidos */
 }
-.card:hover .card-image { 
-    transform: scale(1.05);
+
+/* Container das 'bullets' de navegação */
+.bullets {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+/* Estilo de cada 'bullet' */
+.bullets span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo da 'bullet' ativa */
+.bullets span.active-slider {
+    background-color: white;
 }
 
 .card-title {

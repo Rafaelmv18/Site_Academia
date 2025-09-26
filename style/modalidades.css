@@ -83,7 +83,7 @@
     color: var(--cor-texto-claro);
 }
 
-.card-image {
+.card-image-modalidade{
     position: absolute;
     top: 0;
     left: 0;

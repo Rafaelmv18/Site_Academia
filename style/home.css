@@ -179,6 +179,12 @@ nav .sub_menu li a i {
     color: #f39c12;
 }
 
+.active {
+  color: #f39c12; 
+  font-weight: bold;
+}
+
+
 /* Error*/
 
 section.erro-404 {
