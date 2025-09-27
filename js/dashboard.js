@@ -1,17 +1,11 @@
 const userBtn = document.querySelector('.user-btn');
 const submenu = document.querySelector('.sub_menu');
 
-const navLinks = document.querySelectorAll(".nav-link");
-const contentArea = document.querySelector(".content-area");
-const pageTitle = document.querySelector(".page-title");
-
-// abrir/fechar no clique do botão
 userBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // impede o clique de subir até o document
+    e.stopPropagation();
     submenu.classList.toggle('active');
 });
 
-// fechar se clicar fora
 document.addEventListener('click', (e) => {
     if (!submenu.contains(e.target) && !userBtn.contains(e.target)) {
         submenu.classList.remove('active');
@@ -19,14 +13,14 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".nav-link"); // Seleciona todos os links iniciais
     const contentArea = document.querySelector(".content-area");
     const pageTitle = document.querySelector(".page-title");
 
     function loadPage(page, link) {
-        fetch(`pages_painel/${page}.php`)
+        fetch(`pages_painel/${page}.php`) 
             .then(response => {
-                if (!response.ok) throw new Error("Erro ao carregar página");
+                if (!response.ok) throw new Error("Erro ao carregar página (Código HTTP não OK)");
                 return response.text();
             })
             .then(html => {
@@ -36,56 +30,75 @@ document.addEventListener("DOMContentLoaded", () => {
                 scripts.forEach(oldScript => {
                     const newScript = document.createElement("script");
                     
-                    // Copia os atributos importantes (como src)
                     Array.from(oldScript.attributes).forEach(attr => {
                         newScript.setAttribute(attr.name, attr.value);
                     });
 
-                    // Copia o conteúdo para scripts inline
                     if (oldScript.textContent) {
                         newScript.textContent = oldScript.textContent;
                     }
 
-                    // Remove o script antigo do HTML injetado para não ficar duplicado
                     oldScript.parentNode.removeChild(oldScript);
-
-                    // Adiciona o novo script ao final do body para que seja executado
                     document.body.appendChild(newScript);
                 });
 
-                // Atualiza título da página
-                pageTitle.textContent = link.querySelector("span").innerText;
+                // Re-anexa os listeners de clique aos links injetados (botões)
+                navLinks.forEach(link => {
+                    link.removeEventListener("click", handleNavigationClick); 
+                    link.addEventListener("click", handleNavigationClick);
+                });
 
-                // Atualiza item ativo no menu
+                window.history.replaceState({}, document.title, 'painel.php');
+
+
+                // Atualiza título e item ativo no menu
+                const titleElement = link.querySelector("span") || link;
+                pageTitle.textContent = titleElement.innerText.trim();
+
                 document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
-                link.parentElement.classList.add("active");
-
-                // Salva seção no localStorage
+                
+                // Ativa o item da sidebar com base na página atual
+                const sidebarLink = document.querySelector(`.sidebar .nav-link[data-section="${page}"]`);
+                if (sidebarLink && sidebarLink.parentElement) {
+                    sidebarLink.parentElement.classList.add("active");
+                }
+                
+                // Salva a nova seção (ou a atual)
                 localStorage.setItem("activeSection", page);
             })
             .catch(err => {
-                contentArea.innerHTML = `<p style="color:red;">${err.message}</p>`;
+                contentArea.innerHTML = `<p style="color:red;">Falha na Requisição AJAX: ${err.message}</p>`;
+                console.error("Erro AJAX:", err);
             });
     }
 
-    // Clique no menu
+    // --- FUNÇÃO PARA TRATAR O CLIQUE (Sidebar e Botões) ---
+    function handleNavigationClick(e) {
+        e.preventDefault();
+        
+        const link = e.currentTarget;
+        const page = link.dataset.section;
+        
+        window.history.pushState({page: page}, '', `painel.php?section=${page}`);
+
+        loadPage(page, link);
+    }
+    
     navLinks.forEach(link => {
-        link.addEventListener("click", e => {
-            e.preventDefault();
-            const page = link.dataset.section;
-            loadPage(page, link);
-        });
+        link.addEventListener("click", handleNavigationClick);
     });
 
-    // 🔹 Verifica se já tem seção salva
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionFromURL = urlParams.get('section');
     const savedSection = localStorage.getItem("activeSection");
-    if (savedSection) {
-        const activeLink = document.querySelector(`.nav-link[data-section="${savedSection}"]`);
-        if (activeLink) {
-            loadPage(savedSection, activeLink);
-        }
+    
+    let targetPage = sectionFromURL || savedSection || 'inicio';
+    
+    const initialLink = document.querySelector(`.nav-link[data-section="${targetPage}"]`);
+    
+    if (initialLink) {
+        loadPage(targetPage, initialLink);
     } else {
-        // Se não tiver nada salvo, inicia no "inicio"
         loadPage("inicio", document.querySelector(".nav-link[data-section='inicio']"));
     }
 });

@@ -1,10 +1,10 @@
 <?php
     require_once '../config.php';
-    $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário'; 
-    $plano_atual = "Plano Premium";
-    $dias_para_vencer = 18;
+    $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
     $aluno = Painel::select('aluno', 'aluno_id=?', array($_SESSION['usuario_id']));
-    $plano = Painel::select('plano', 'plano_id=?', array($aluno['plano_id']));
+    if (!is_bool($aluno)){
+        $plano = Painel::select('plano', 'plano_id=?', array($aluno['plano_id']));
+    }
     $cpf_limpo = preg_replace('/[^\d]/', '', $_SESSION['cpf']);
     $digitos_visiveis = substr($cpf_limpo, 3, 3);
     $cpf_mascarado = '***.' . $digitos_visiveis . '.***-**';
@@ -37,10 +37,10 @@
                     </span>
                 </li>
             </ul>
-            <a href="#" class="btn btn-primary">
-                <i class="fa-solid fa-pencil"></i> Editar Perfil
+            <a href="painel.php?section=dados" class="btn btn-primary">
+                <i class="fa-solid fa-pencil"></i> 
+                <span>Editar Perfil</span>
             </a>
-
         </div>
 
         <div class="plan-card">
@@ -48,15 +48,23 @@
             <ul class="plan-details">
                 <li>
                     <strong>Plano Atual:</strong>
-                    <span><?php if(!is_bool($plano)) echo $plano['nome']; ?></span>
+                    <span>
+                        <?php 
+                            if (!is_bool($aluno) && !is_bool($plano)) {
+                                echo $plano['nome'];
+                            } else {
+                                echo "";
+                            }
+                        ?>
+                    </span>
                 </li>
                 <li class="plan-expiration">
                     <strong>Vencimento:</strong>
                     <span class="days-left"><?php echo (empty($aluno['data_fim_plano'])) ? 'Sem Plano':  $aluno['data_fim_plano']; ?></span>
                 </li>
             </ul>
-            <a href="#" data-section="planos" class="btn btn-primary">
-                <i class="fa-solid fa-calendar-days"></i> Ver Planos e Faturas
+            <a href="painel.php?section=planos" class="btn btn-primary">
+                <i class="fa-solid fa-calendar-days"></i> Ver Planos
             </a>
         </div>
     </div>
