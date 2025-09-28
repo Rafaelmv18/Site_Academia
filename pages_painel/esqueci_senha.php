@@ -26,7 +26,7 @@
                 <p class="subtitle">Digite seu email</p>
             </div>
 
-            <form class="login-form" id="loginForm" action="../login.php" method="post">
+            <form class="login-form" id="loginForm" action="redefinir_senha.php" method="post">
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fas fa-envelope input-icon"></i>
