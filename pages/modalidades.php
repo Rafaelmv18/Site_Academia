@@ -12,8 +12,8 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
             <div class="card">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="<?= htmlspecialchars($modalidade['imagem']) ?>" 
-                             alt="<?= htmlspecialchars($modalidade['nome']) ?>" class="card-image-modalidade">
+                        <img src="<?php echo $modalidade['imagem'] ?>" 
+                             alt="<?php echo $modalidade['nome'] ?>" class="card-image-modalidade">
                         <div class="card-title"><?php echo $modalidade['nome']?></div>
                     </div>
                     <div class="card-back">

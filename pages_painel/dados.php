@@ -1,8 +1,13 @@
 <?php
 require('../config.php');
-
 // Dados atuais
-$usuario = Painel::select('usuario', 'usuario_id=?', [$_SESSION['usuario_id']]);
+if (isset($_GET['usuario_id'])){
+    $usuario_id = $_GET['usuario_id'];
+} else {
+    $usuario_id = $_SESSION['usuario_id'];
+}
+
+$usuario = Painel::select('usuario', 'usuario_id=?', array($usuario_id));
 $nascimento_raw = date('Y-m-d', strtotime($usuario['data_nascimento']));
 $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
 
@@ -13,17 +18,17 @@ $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
         <form class="cadastro-form" method="POST">
             <div class="form-group">
                 <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" value="<?php echo $_SESSION['nome'];?>" readonly/>
+                <input type="text" id="nome" name="nome" value="<?php echo $usuario['nome'];?>" readonly/>
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" value="<?php echo $_SESSION['email'];?>"/>
+                <input type="email" id="email" name="email" value="<?php echo $usuario['email'];?>"/>
             </div>
 
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf" value="<?php echo $_SESSION['cpf'];?>" maxlength="14" readonly/>
+                <input type="text" id="cpf" name="cpf" value="<?php echo $usuario['cpf'];?>" maxlength="14" readonly/>
             </div>
 
             <div class="form-group">

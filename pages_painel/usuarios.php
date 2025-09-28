@@ -20,24 +20,26 @@
                     $plano = Painel::select('plano', 'plano_id=?', array($aluno['plano_id']));
                 }
             ?>
-                <div class="user-card">
-                    <i class="fa-solid fa-user-circle user-icon"></i>
-                    <span class="user-name"><?php echo $usuario['nome'];?></span>
-                    <span class="user-cpf"><?php echo $usuario['cpf'];?></span>
-                    <span class="user-plan">
-                        <?php
-                        if(!is_bool($plano)){
-                            if (isset($plano['nome'])) {
-                                echo $plano['nome'];
+                <a href="painel.php?section=dados&usuario_id=<?php echo $usuario['usuario_id']; ?>">
+                    <div class="user-card">
+                        <i class="fa-solid fa-user-circle user-icon"></i>
+                        <span class="user-name"><?php echo $usuario['nome'];?></span>
+                        <span class="user-cpf"><?php echo $usuario['cpf'];?></span>
+                        <span class="user-plan">
+                            <?php
+                            if(!is_bool($plano)){
+                                if (isset($plano['nome'])) {
+                                    echo $plano['nome'];
+                                } else {
+                                    echo 'Funcionario';
+                                } 
                             } else {
-                                echo 'Funcionario';
-                            } 
-                        } else {
-                            echo 'Sem plano';
-                        }
-                        ?>
-                    </span>
-                </div>
+                                echo 'Sem plano';
+                            }
+                            ?>
+                        </span>
+                    </div>
+                </a>
             <?php } ?>
         </div>
         <!-- <p id="noResultsMessage" style="display: none;">Nenhum usuário encontrado.</p> -->
