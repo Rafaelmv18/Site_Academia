@@ -21,10 +21,10 @@ $planos = Painel::selectAll('plano', 'plano_id', 'ASC');
                 <textarea name="descricao" rows="3"><?php echo $plano['descricao'] ?? '' ?></textarea><br>
 
                 <div style="display:flex; gap:10px; margin-top:10px;">
-                    <button type="submit" name="atualizarPlano" value="atualizar" style="flex:1; padding:8px 12px; border:none; background:#27ae60; color:white; border-radius:5px; cursor:pointer;">
+                    <button type="submit" name="atualizarPlano" value="atualizar" onclick="return confirm('Tem certeza que deseja atualizar este plano?');" style="flex:1; padding:8px 12px; border:none; background:#27ae60; color:white; border-radius:5px; cursor:pointer;">
                         Atualizar
                     </button>
-                    <button type="submit" name="excluirPlano" value="excluir" style="flex:1; padding:8px 12px; border:none; background:#e74c3c; color:white; border-radius:5px; cursor:pointer;">
+                    <button type="submit" name="excluirPlano" value="excluir" onclick="return confirm('Tem certeza que deseja excluir este plano? A ação não pode ser desfeita.');" style="flex:1; padding:8px 12px; border:none; background:#e74c3c; color:white; border-radius:5px; cursor:pointer;">
                         Excluir
                     </button>
                 </div>

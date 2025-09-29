@@ -42,10 +42,10 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
                 <img src="<?php echo $modalidade['imagem'] ?>" alt="Preview" style="max-width:100%; border-radius:8px; margin:10px 0;">
 
                 <div style="display:flex; gap:10px;">
-                    <button type="submit" name="atualizarModalidade" value="atualizar" style="flex:1; padding:8px 12px; border:none; background:#27ae60; color:white; border-radius:5px; cursor:pointer;">
+                    <button type="submit" name="atualizarModalidade" value="atualizar" onclick="return confirm('Tem certeza que deseja atualizar está modalidade?');" style="flex:1; padding:8px 12px; border:none; background:#27ae60; color:white; border-radius:5px; cursor:pointer;">
                         Atualizar
                     </button>
-                    <button type="submit" name="excluirModalidade" value="excluir" style="flex:1; padding:8px 12px; border:none; background:#e74c3c; color:white; border-radius:5px; cursor:pointer;">
+                    <button type="submit" name="excluirModalidade" value="excluir" onclick="return confirm('Tem certeza que deseja excluir está modalidade? A ação não pode ser desfeita.');" style="flex:1; padding:8px 12px; border:none; background:#e74c3c; color:white; border-radius:5px; cursor:pointer;">
                         Excluir
                     </button>
                 </div>

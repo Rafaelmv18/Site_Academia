@@ -62,7 +62,7 @@ $readonly_attr = ($_SESSION['cargo'] == 1) ? '' : 'readonly';
 
 
             <!-- Botão -->
-            <button type="submit" name="atualiza" class="btn btn-primary">Atualizar</button>
+            <button type="submit" name="atualiza" onclick="return confirm('Tem certeza que deseja atualizar?');" class="btn btn-primary">Atualizar</button>
             <button type="reset" class="btn btn-primary desmarcar">Cancelar</button>
         </form>
     </div>
