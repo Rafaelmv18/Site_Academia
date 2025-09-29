@@ -1,3 +1,5 @@
+console.log("Script de busca carregado.");
+
 // Seleciona os elementos diretamente, sem esperar por nenhum evento.
 const input = document.getElementById("cpfInput");
 const cards = document.querySelectorAll(".user-card");

@@ -1,3 +1,4 @@
+console.log("Script de mascara carregado.");
 document.addEventListener('DOMContentLoaded', () => {
     console.log('mascaras.js carregado');
     const inputCPF = document.getElementById('cpf');
