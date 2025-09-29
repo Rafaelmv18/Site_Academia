@@ -45,7 +45,6 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token'] ?? ''); ?>">
 
                 <button type="submit" class="btn-primary">
                     <i class="fa-solid fa-check"></i>
