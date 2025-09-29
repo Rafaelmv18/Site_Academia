@@ -63,7 +63,6 @@ if (isset($_POST['cadastrarModalidade'])) {
     }
 
     Modalidade::cadastrarModalidade($nome, $descricao, $horariosJson, $imagemPath);
-    // Sugestão: Adicionar alerta e redirect aqui.
 }
 
 // --- ATUALIZAR MODALIDADE EXISTENTE ---
@@ -106,7 +105,6 @@ if (isset($_POST['atualizarModalidade'])) {
     }
 
     Modalidade::atualizarModalidade($id, $nome, $descricao, $horariosJsonParaSalvar, $imagemPath);
-    // Sugestão: Adicionar alerta e redirect aqui.
 }
 
 // --- EXCLUIR MODALIDADE ---
@@ -121,7 +119,29 @@ if (isset($_POST['excluirModalidade'])) {
     }
 
     Modalidade::deletarModalidade($id);
-    // Sugestão: Adicionar alerta e redirect aqui.
+}
+
+if(isset($_POST['cadastrarPlano'])){
+    $nome = $_POST['nome'];
+    $valor = $_POST['valor'];
+    $descricao = $_POST['descricao'];
+
+    Plano::cadastrarPlano($nome, $descricao, $valor,); 
+}
+
+if(isset($_POST['atualizarPlano'])){
+    $id = $_POST['plano_id'];
+    $nome = $_POST['nome'];
+    $valor = $_POST['valor'];
+    $descricao = $_POST['descricao'];
+
+    Plano::atualizarPlano($id, $nome, $valor, $descricao); 
+}
+
+if(isset($_POST['excluirPlano'])){
+    $id = $_POST['plano_id'];
+
+    Plano::deletarPlano($id);
 }
 ?>
 <!DOCTYPE html>
@@ -137,7 +157,7 @@ if (isset($_POST['excluirModalidade'])) {
     <link rel="stylesheet" href="style_painel/agendamento.css">
     <link rel="stylesheet" href="style_painel/cadastro.css">
     <link rel="stylesheet" href="style_painel/usuarios_funcionarios.css">
-    <link rel="stylesheet" href="style_painel/modalidades.css">
+    <link rel="stylesheet" href="style_painel/crud.css">
     <link rel="stylesheet" href="style_painel/relatorio.css">
     
 
@@ -201,6 +221,12 @@ if (isset($_POST['excluirModalidade'])) {
                         <a href="modalidades" class="nav-link" data-section="modalidades">
                             <i class="fa-solid fa-file"></i>
                             <span>Modalidades</span>
+                        </a>
+                    </li>
+                    <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">
+                        <a href="editar_planos" class="nav-link" data-section="editar_planos">
+                            <i class="fa-solid fa-money-check"></i>
+                            <span>Editar Planos</span>
                         </a>
                     </li>
                     <li class="nav-item <?php echo ($_SESSION['tipo_usuario'] < 1 ? 'hidden' : ''); ?>">

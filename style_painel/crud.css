@@ -22,11 +22,10 @@
 }
 
 .modalidades-admin h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--orange-accent);
     font-size: 2rem;
-    font-weight: 600;
+    margin-bottom: 18px;
+    font-weight: 900;
+    text-align: center;
 }
 
 .container-modalidades{
@@ -219,6 +218,115 @@
 }
 
 .modalidade-form button:hover {
+    background: var(--orange-hover);
+    transform: scale(1.05);
+}
+
+
+/* ========================= */
+/* PLANOS (Baseado em Modalidades) */
+/* ========================= */
+
+.planos-admin {
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+}
+
+.planos-admin h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.container-planos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 25px;
+}
+
+/* Card de cada plano - herdando o mesmo estilo dos cards de modalidades */
+.plano-form {
+    background: var(--primary-black);
+    border: 1px solid var(--dark-gray);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    padding: 20px;
+    margin: 0;
+    max-width: 100%;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* Labels */
+.plano-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-gray);
+}
+
+/* Inputs e Textarea (mesmos estilos de modalidades) */
+.plano-form input[type="text"],
+.plano-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    resize: vertical;
+}
+
+.plano-form input[type="text"]:focus,
+.plano-form textarea:focus {
+    border-color: var(--orange-accent);
+    background: var(--medium-gray);
+}
+
+/* Botões */
+.plano-form button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: none;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Botão Atualizar */
+.plano-form button[name="atualizarPlano"] {
+    background: var(--success-green);
+}
+.plano-form button[name="atualizarPlano"]:hover {
+    background: #219150;
+    transform: scale(1.05);
+}
+
+/* Botão Excluir */
+.plano-form button[name="excluirPlano"] {
+    background: var(--danger-red);
+}
+.plano-form button[name="excluirPlano"]:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Botão Cadastrar */
+.plano-form button[name="cadastrarPlano"] {
+    background: var(--orange-accent);
+    width: 100%;
+}
+.plano-form button[name="cadastrarPlano"]:hover {
     background: var(--orange-hover);
     transform: scale(1.05);
 }
