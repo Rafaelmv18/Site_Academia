@@ -70,4 +70,3 @@
     </div>
 </section>
 
-<script src="../js/inicio.js"></script>

@@ -1,6 +1,6 @@
 
+console.log("Script de agendamento carregado.");
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Script de agendamento carregado.");
     // --- ELEMENTOS DA PÁGINA ---
     const dateSelector = document.querySelector('.date-selector');
     const scheduleGrid = document.querySelector('.schedule-grid');

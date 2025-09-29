@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php'; 
-$modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
+$modalidades = Painel::selectAll('modalidade', 'nome', 'ASC');
 ?>
 <section class="modalidades">
     <div class="container">
