@@ -9,7 +9,11 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
             <p>Descubra nossas atividades e comece sua jornada fitness hoje mesmo</p>
         </div>
         <?php foreach ($modalidades as $modalidade){ ?>
-            <div class="card">
+             <?php
+                // Cria o mesmo "slug" que usamos no menu
+                $slug = strtolower(str_replace(' ', '-', $modalidade['nome']));
+            ?>
+            <div class="card" id="modalidade-<?php echo $slug; ?>">
                 <div class="card-inner">
                     <div class="card-front">
                         <img src="<?php echo $modalidade['imagem'] ?>" 

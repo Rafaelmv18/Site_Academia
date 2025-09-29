@@ -1,4 +1,7 @@
-<?php include('config.php'); ?>
+<?php 
+include('config.php'); 
+$modalidadesParaMenu = Painel::selectAll('modalidade', 'nome', 'ASC');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -36,9 +39,12 @@
                     <li>
                         <a href="?url=modalidades" class="<?= $pagina == 'modalidades' ? 'active' : '' ?>">Modalidades</a>
                         <ul class="sub_menu">
-                            <li><a href="#">Academia</a></li>
-                            <li><a href="#">Fit Dance</a></li>
-                            <li><a href="#">Pilates</a></li>
+                            <?php foreach ($modalidadesParaMenu as $modalidade){ ?>
+                                <?php
+                                    $slug = strtolower(str_replace(' ', '-', $modalidade['nome']));
+                                ?>
+                                <li><a href="?url=modalidades#modalidade-<?php echo $slug; ?>"><?php echo $modalidade['nome']; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li><a href="?url=contato" class="<?= $pagina == 'contato' ? 'active' : '' ?>">Contato</a></li>
