@@ -3,55 +3,62 @@ require('../config.php');
 
 $usuario_id = $_SESSION['usuario_id'] ?? 0;
 $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
+
 ?>
 
 <div class="container">
-    <h1>Agendamento de Aulas</h1>
-
+    <h1>Agendamento de Aulas</h1>  
     <nav class="date-selector">
         <a href="#" data-day="ontem">Ontem</a>
         <a href="#" data-day="hoje" class="active">Hoje</a>
         <a href="#" data-day="amanha">Amanhã</a>
-    </nav>
-
+    </nav>  
     <main class="schedule-grid">
         <?php foreach ($modalidades as $aula){ ?>
-            <div class="class-card" 
-                 data-class-id="<?php echo $aula['modalidade_id']; ?>"
-                 data-horarios='<?php echo $aula['horarios'], ENT_QUOTES, 'UTF-8'; ?>'>
+            <?php
+                $agendado = Painel::select('Agendamento', 'aluno_id = ? AND modalidade_id = ?', [$usuario_id, $aula['modalidade_id']]);
+            ?>
+            <div class="class-card" data-horarios='<?php echo htmlspecialchars($aula['horarios'] ?? '[]', ENT_QUOTES, 'UTF-8'); ?>'>
                 
-                <div class="class-info">
-                    <div class="class-schedule">
-                        <?php
-                        $horariosJson = $aula['horarios'];
-                        $horariosArray = json_decode($horariosJson, true);
-                        if (is_array($horariosArray) && !empty($horariosArray)) {
-                            foreach ($horariosArray as $horario) {
-                                ?>
-                                <div class="schedule-item">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <span>
-                                        <strong><?php echo $horario['dia']; ?>:</strong>
-                                        <?php echo $horario['inicio'] . ' - ' . $horario['fim']; ?>
-                                    </span>
-                                </div>
-                                <?php
-                            }
-                        } else {
-                            echo '<div class="schedule-item-empty">Horário a definir</div>';
-                        }
-                        ?>
-                    </div>
-                    <h2 class="class-title"><?php echo $aula['nome']; ?></h2>
-                </div>
+                <h2 class="class-title"><?php echo htmlspecialchars($aula['nome']); ?></h2>
 
-                <div class="class-details">
-                    <button class="btn btn-primary btn-agendar">
-                        <i class="fa-solid fa-circle-check"></i> Agendar
-                    </button>
+                <div class="horarios-wrapper">
+                    <?php
+                    $horariosArray = json_decode($aula['horarios'] ?? '[]', true);
+                    if (is_array($horariosArray) && !empty($horariosArray)) {
+                        foreach ($horariosArray as $horario) {?>
+                            <div class="schedule-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>
+                                <strong><?= htmlspecialchars($horario['dia'] ?? 'N/D'); ?>:</strong>
+                                <?= htmlspecialchars($horario['inicio'] ?? 'N/D'); ?> - <?= htmlspecialchars($horario['fim'] ?? 'N/D'); ?>
+                            </span><br><br>
+                        </div>
+                    <?php } }?>
                 </div>
+                
+                <?php
+                if($_SESSION['tipo_usuario'] != 1){
+                    if ($agendado){ 
+                ?>
+                    <form method="POST">
+                        <input type="hidden" name="agendamento_id" value="<?php echo $agendado['agendamento_id']; ?>">
+                        <button type="submit" name="desmarcar" class="btn btn-primary desmarcar">
+                            <i class="fa-solid fa-xmark"></i> Desmarcar
+                        </button>
+                    </form>
+                <?php }else{ ?>
+                    <form method="POST">
+                        <input type="hidden" name="modalidade_id" value="<?php echo $aula['modalidade_id']; ?>">
+                        <input type="hidden" name="data" value="<?php echo date('Y-m-d H:i:s'); ?>"> 
+                        <button type="submit" name="agendar" class="btn btn-primary">
+                            <i class="fa-solid fa-circle-check"></i> Agendar
+                        </button>
+                    </form>
+                <?php }} ?>
             </div>
         <?php } ?>
+        
     </main>
 </div>
 

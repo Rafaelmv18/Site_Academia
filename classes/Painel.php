@@ -66,6 +66,66 @@ class Painel{
         // após o envio do cabeçalho de redirecionamento.
         die();
     }
-}
 
+	public static function getRelatorioFrequencia() {
+        try {
+            // SQL para contar as entradas de cada aluno
+            $sql = "
+                SELECT 
+                    u.nome, 
+                    COUNT(e.entrada_id) AS total_frequencia
+                FROM 
+                    Usuario u
+                JOIN 
+                    Aluno a ON u.usuario_id = a.aluno_id -- Garante que estamos pegando apenas usuários que são alunos
+                LEFT JOIN 
+                    Entrada e ON a.aluno_id = e.aluno_id -- LEFT JOIN para incluir alunos com 0 presenças
+                WHERE
+                    u.tipo_usuario = 0 -- Filtra explicitamente por alunos na tabela Usuario
+                GROUP BY 
+                    u.nome
+                ORDER BY 
+                    total_frequencia DESC
+            ";
+
+            $stmt = PgSql::conectar()->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            // Em um sistema real, aqui você faria o log do erro.
+            // Para depuração, podemos mostrar a mensagem:
+            // die("Erro ao gerar relatório de frequência: " . $e->getMessage());
+            return []; // Retorna um array vazio em caso de erro
+        }
+    }
+
+
+    public static function getRelatorioOcupacao() {
+        try {
+            // SQL para contar os agendamentos de cada modalidade
+            $sql = "
+                SELECT 
+                    m.nome AS modalidade, 
+                    COUNT(ag.agendamento_id) AS total_agendamentos
+                FROM 
+                    Modalidade m
+                LEFT JOIN 
+                    Agendamento ag ON m.modalidade_id = ag.modalidade_id -- LEFT JOIN para incluir modalidades com 0 agendamentos
+                GROUP BY 
+                    m.nome
+                ORDER BY 
+                    total_agendamentos DESC
+            ";
+
+            $stmt = PgSql::conectar()->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            // die("Erro ao gerar relatório de ocupação: " . $e->getMessage());
+            return []; // Retorna um array vazio em caso de erro
+        }
+    }
+}
 ?>

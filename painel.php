@@ -143,6 +143,23 @@ if(isset($_POST['excluirPlano'])){
 
     Plano::deletarPlano($id);
 }
+
+if (isset($_POST['agendar'])) {
+    $aluno_id = $_SESSION['usuario_id'] ?? null;
+    $modalidade_id = $_POST['modalidade_id'] ?? null;
+    $data = $_POST['data'] ?? null;
+
+    Agendamento::criarAgendamento($modalidade_id, $aluno_id, $data);
+
+}
+
+if (isset($_POST['desmarcar'])) {
+    $agendamento_id = $_POST['agendamento_id'] ?? null;
+
+    Agendamento::deletarAgendamento($agendamento_id);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
