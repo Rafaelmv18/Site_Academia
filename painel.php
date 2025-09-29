@@ -1,6 +1,6 @@
 <?php
 require_once('./config.php');
-$tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
+$tipo_conta = ($_SESSION['cargo'] == 1) ? 'Administrador' : 'Usuário';
 
 if (isset($_POST['cadastro'])) {
     $nome = $_POST['nome'];
@@ -18,13 +18,22 @@ if (isset($_POST['cadastro'])) {
 }
 
 if (isset($_POST['atualiza'])) {
+    if ($_SESSION['cargo'] == 1){
+        $nome = $_POST['nome'];
+        $cpf = $_POST['cpf'];
+        $data = $_POST['nascimento'];
+    } else {
+        $nome = $_SESSION['nome'];
+        $cpf = $_SESSION['cpf'];
+        $data = $_SESSION['nascimento'];
+    }
     $atualizado = Usuario::atualizarUsuario(
-        $_SESSION['usuario_id'],
-        $_POST['nome'],
-        $_POST['cpf'],
+        $_POST['usuario_id'],
+        $nome,
+        $cpf,
         $_POST['email'],
         $_POST['telefone'],
-        $_POST['nascimento'],
+        $data,
         $_POST['endereco']
     );
 }

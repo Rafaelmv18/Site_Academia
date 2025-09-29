@@ -1,6 +1,6 @@
 <?php
     require_once '../config.php';
-    $tipo_conta = ($_SESSION['tipo_usuario'] == 1) ? 'Administrador' : 'Usuário';
+    $tipo_conta = ($_SESSION['cargo'] == 1) ? 'Administrador' : 'Usuário';
     $aluno = Painel::select('aluno', 'aluno_id=?', array($_SESSION['usuario_id']));
     if (!is_bool($aluno)){
         $plano = Painel::select('plano', 'plano_id=?', array($aluno['plano_id']));

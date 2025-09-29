@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $info['email'];
         $_SESSION['status'] = $info['status'];
         $_SESSION['tipo_usuario'] = $info['tipo_usuario'];
+        $_SESSION['cargo'] = $info['cargo'];
+        $_SESSION['nascimento'] = $info['data_nascimento'];
 
         header("Location: painel.php");
         exit;

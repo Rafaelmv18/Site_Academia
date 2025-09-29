@@ -60,7 +60,7 @@ function loadPage(page, link) {
                 link.addEventListener("click", handleNavigationClick);
             });
 
-            window.history.replaceState({}, document.title, 'painel.php');
+            //window.history.replaceState({}, document.title, 'painel.php');
 
             // Atualiza título e item ativo no menu
             const titleElement = link.querySelector("span") || link;
