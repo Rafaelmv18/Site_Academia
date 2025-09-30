@@ -8,7 +8,7 @@ class PgSql {
             try {
                 // Monta a string de conexão (DSN) usando as constantes
                 // A PARTE CRUCIAL ESTÁ AQUI: sslmode=require
-                $dsn = 'pgsql:host=' . DB_HOST . ';port=6543;dbname=' . DB_NAME . ';sslmode=require';
+                $dsn = 'pgsql:host=' . DB_HOST . ';port=5432;dbname=' . DB_NAME . ';sslmode=require';
                 
                 self::$pdo = new PDO($dsn, DB_USER, DB_PASS);
 
