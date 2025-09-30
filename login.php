@@ -1,6 +1,6 @@
 <?php include('config.php');
 if (isset($_SESSION['erro_login'])) {
-    echo '<p style="color: red; text-align: center;">'.$_SESSION['erro_login'].'</p>';
+    echo "<script>alert('CPF e/ou senha errados!');</script>";
     unset($_SESSION['erro_login']);
 }
 ?>
