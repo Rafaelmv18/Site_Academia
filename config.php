@@ -3,31 +3,31 @@
 session_start();
 
 // 2. DEFINE CONSTANTES DA APLICAÇÃO
-define('BASE_URL', 'http://localhost/Site_Academia/'); // Melhor nome que INCLUDE_PATH
+define('BASE_URL', 'http://localhost/Site_Academia/');
 
 // ===================================================
-//  MUDANÇA PRINCIPAL: CONSTANTES PARA A API DO SUPABASE
+// CONSTANTES PARA A API DO SUPABASE
 // ===================================================
 // Encontre estes valores no seu painel do Supabase em Settings -> API
-define('SUPABASE_URL', 'https://ijjrjomdbsdbqkpolonh.supabase.co'); // Sua URL do Projeto
-define('SUPABASE_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqanJqb21kYnNkYnFrcG9sb25oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyNDkyNDIsImV4cCI6MjA3MzgyNTI0Mn0.eaE4ZSOBkXNqzMB4uJvjrJvwzopDjFR15wmVe0wQYpk'); // Sua chave "service_role" (secreta)
+define('SUPABASE_URL', 'https://ijjrjomdbsdbqkpolonh.supabase.co');
+define('SUPABASE_KEY', 'SUA_CHAVE_API_"SERVICE_ROLE"_SECRET_AQUI'); // << COLOQUE SUA CHAVE SECRETA AQUI
 
 // 3. AUTOLOADER DE CLASSES
-// Carrega automaticamente arquivos da pasta /classes/ como SupabaseAPI.php, Painel.php, etc.
+// Carrega automaticamente os arquivos da pasta /classes/ quando uma classe é chamada
 $autoload = function($class){
-    // Garante que o caminho do arquivo está correto
     $file = __DIR__ . '/classes/' . $class . '.php';
     if (file_exists($file)) {
-        include($file);
+        require_once($file); // Usar require_once é mais seguro
     }
 };
 spl_autoload_register($autoload);
 
 // 4. CRIA UMA INSTÂNCIA GLOBAL DO CLIENTE DA API
-// Para que você possa usar a variável $supabase em qualquer lugar do seu código.
-$supabase = new PgSql(SUPABASE_URL, SUPABASE_KEY);
+// Esta linha agora cria um objeto da classe correta: SupabaseAPI
+$supabase = new SupabaseAPI(SUPABASE_URL, SUPABASE_KEY);
 
-// 5. FUNÇÕES GLOBAIS DE AJUDA (continua igual)
+// 5. FUNÇÕES GLOBAIS DE AJUDA
+// Adicionamos 'if !function_exists' para evitar o erro 'Cannot redeclare'
 if (!function_exists('verificaPermissao')) {
     function verificaPermissao($permissao){
         if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] < $permissao){
@@ -36,6 +36,4 @@ if (!function_exists('verificaPermissao')) {
         }
     }
 }
-
-// O CÓDIGO ANTIGO DE CONEXÃO DIRETA (CLASSE PgSql) FOI REMOVIDO.
 ?>

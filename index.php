@@ -1,13 +1,13 @@
 <?php 
-// 1. Inclui o config.php. Ele já inicia a sessão e cria a variável global $supabase.
-include('config.php'); 
+// Usar require_once é a melhor prática para arquivos de configuração.
+require_once('config.php'); 
 
-// 2. Torna a variável $supabase acessível neste escopo.
+// Torna a variável $supabase acessível.
 global $supabase;
 
-// 3. Usa o método 'select' da classe SupabaseAPI para buscar as modalidades.
-//    O resultado já vem como um array PHP.
-$modalidadesParaMenu = $supabase->select('Modalidade', 'select=nome&order=nome.asc');
+// Busca as modalidades usando a API.
+// Atenção: O nome da tabela deve ser EXATAMENTE como está no Supabase (geralmente com letra maiúscula).
+$modalidadesParaMenu = $supabase->selectAll('Modalidade', 'nome', 'asc');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,17 +16,13 @@ $modalidadesParaMenu = $supabase->select('Modalidade', 'select=nome&order=nome.a
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SPIKE GYM</title>
         <link rel="stylesheet" href="style/home.css">
-        <link rel="stylesheet" href="style/sobre.css">
-        <link rel="stylesheet" href="style/planos.css">
-        <link rel="stylesheet" href="style/modalidades.css">
-        <link rel="stylesheet" href="style/contato.css">
         <script src="js/jquery.js"></script>
         <script src="js/home.js"></script>
     </head>
     <body>
     <?php
-        $url = isset($_GET['url']) ? $_GET['url'] : 'planos';
-        $pagina = $_GET['url'] ?? 'planos'; 
+        $url = $_GET['url'] ?? 'planos';
+        $pagina = $url;
     ?>
     <header>
         <div class="center">
@@ -39,8 +35,6 @@ $modalidadesParaMenu = $supabase->select('Modalidade', 'select=nome&order=nome.a
                         <a href="?url=modalidades" class="<?= $pagina == 'modalidades' ? 'active' : '' ?>">Modalidades</a>
                         <ul class="sub_menu">
                             <?php 
-                            // 4. O loop para gerar o menu continua igual, mas agora usa os dados da API.
-                            // Verifica se a busca na API retornou dados e não um erro.
                             if (isset($modalidadesParaMenu) && !isset($modalidadesParaMenu['error'])) {
                                 foreach ($modalidadesParaMenu as $modalidade){ 
                                     $slug = strtolower(str_replace(' ', '-', $modalidade['nome']));
@@ -53,7 +47,7 @@ $modalidadesParaMenu = $supabase->select('Modalidade', 'select=nome&order=nome.a
                         </ul>
                     </li>
                     <li><a href="?url=contato" class="<?= $pagina == 'contato' ? 'active' : '' ?>">Contato</a></li>
-                    <li class="areaCliente"><a href="login.php" class="<?= basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : '' ?>">Área do Cliente</a></li>
+                    <li class="areaCliente"><a href="login.php">Área do Cliente</a></li>
                 </ul>
             </nav>
         </div>
@@ -61,9 +55,9 @@ $modalidadesParaMenu = $supabase->select('Modalidade', 'select=nome&order=nome.a
 
     <main>
         <?php
-            // A lógica de inclusão de páginas continua exatamente a mesma.
-            if (file_exists("pages/" . $url . ".php")) {
-                include("pages/" . $url . ".php");
+            $page_path = "pages/" . $url . ".php";
+            if (file_exists($page_path)) {
+                include($page_path);
             } else {
                 include("pages/404.php");
             }
