@@ -306,6 +306,30 @@ if (isset($_POST['desmarcar'])) {
             </div>
         </main>
     </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const sidebar = document.querySelector(".sidebar");
+
+            if (menuToggle && sidebar) {
+                // Abre/fecha ao clicar no botão
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation(); // impede que o clique feche imediatamente
+                    sidebar.classList.toggle("active");
+                });
+
+                // Fecha ao clicar fora
+                document.addEventListener("click", (e) => {
+                    const clicouFora = !sidebar.contains(e.target) && !menuToggle.contains(e.target);
+                    if (clicouFora && sidebar.classList.contains("active")) {
+                        sidebar.classList.remove("active");
+                    }
+                });
+            } else {
+                console.error("❌ menu-toggle ou sidebar não encontrados");
+            }
+        });
+    </script>
     <script src="./js/dashboard.js"></script>
     <script src="./js/alerta_remover.js"></script>
 </body>
