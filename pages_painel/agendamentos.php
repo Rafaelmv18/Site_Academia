@@ -2,7 +2,7 @@
 require('../config.php');
 
 $usuario_id = $_SESSION['usuario_id'] ?? 0;
-$modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
+$modalidades = Painel::selectAll('modalidade', 'nome', 'ASC');
 
 ?>
 
