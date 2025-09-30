@@ -10,9 +10,12 @@ $planos = Painel::selectAll('plano', 'plano_id', 'ASC');
             <h3><?php echo $plano['nome']; ?></h3>
             <p class="preco"><?php echo $plano['valor']; ?><span>/mês</span></p>
             <ul class="beneficios">
-                <li><i class="fa-solid fa-check"></i> Acesso completo à área de musculação</li>
-                <li><i class="fa-solid fa-check"></i> Acesso em horário comercial</li>
-                <li><i class="fa-solid fa-check"></i> Avaliação física inicial</li>
+                <?php 
+                $beneficios = explode("\n", $plano['descricao']); 
+                foreach ($beneficios as $b) {
+                    echo "<li><i class='fa-solid fa-check'></i> " . trim($b) . "</li>";
+                }
+                ?>
             </ul>
             <button class="btn-primary" onclick="window.location.href='pages_painel/pagamento.php?plano_id=<?php echo $plano['plano_id']?>'">Quero Começar</button>
         </div>

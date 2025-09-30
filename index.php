@@ -39,10 +39,20 @@ $modalidadesParaMenu = Painel::selectAll('modalidade', 'nome', 'ASC');
                     <li>
                         <a href="?url=modalidades" class="<?= $pagina == 'modalidades' ? 'active' : '' ?>">Modalidades</a>
                         <ul class="sub_menu">
-                            <?php foreach ($modalidadesParaMenu as $modalidade){ ?>
-                                <?php
-                                    $slug = strtolower(str_replace(' ', '-', $modalidade['nome']));
-                                ?>
+                            <?php 
+                            // Agrupa as modalidades para não repetir nomes
+                            $agrupadas = [];
+                            foreach ($modalidadesParaMenu as $modalidade) {
+                                $nome = $modalidade['nome'];
+                                if (!isset($agrupadas[$nome])) {
+                                    $agrupadas[$nome] = $modalidade; // guarda apenas o primeiro encontrado
+                                }
+                            }
+
+                            // Agora percorre apenas os nomes únicos
+                            foreach ($agrupadas as $modalidade){ 
+                                $slug = strtolower(str_replace(' ', '-', $modalidade['nome']));
+                            ?>
                                 <li><a href="?url=modalidades#modalidade-<?php echo $slug; ?>"><?php echo $modalidade['nome']; ?></a></li>
                             <?php } ?>
                         </ul>

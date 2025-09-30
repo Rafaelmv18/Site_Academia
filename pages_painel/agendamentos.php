@@ -8,11 +8,6 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
 
 <div class="container">
     <h1>Agendamento de Aulas</h1>  
-    <nav class="date-selector">
-        <a href="#" data-day="ontem">Ontem</a>
-        <a href="#" data-day="hoje" class="active">Hoje</a>
-        <a href="#" data-day="amanha">Amanhã</a>
-    </nav>  
     <main class="schedule-grid">
         <?php foreach ($modalidades as $aula){ ?>
             <?php
@@ -39,23 +34,26 @@ $modalidades = Painel::selectAll('modalidade', 'modalidade_id', 'ASC');
                 
                 <?php
                 if($_SESSION['tipo_usuario'] != 1){
-                    if ($agendado){ 
+                    if($aula['nome'] != 'Musculação'){
+                        if ($agendado){ 
                 ?>
-                    <form method="POST">
-                        <input type="hidden" name="agendamento_id" value="<?php echo $agendado['agendamento_id']; ?>">
-                        <button type="submit" name="desmarcar" class="btn btn-primary desmarcar">
-                            <i class="fa-solid fa-xmark"></i> Desmarcar
-                        </button>
-                    </form>
-                <?php }else{ ?>
-                    <form method="POST">
-                        <input type="hidden" name="modalidade_id" value="<?php echo $aula['modalidade_id']; ?>">
-                        <input type="hidden" name="data" value="<?php echo date('Y-m-d H:i:s'); ?>"> 
-                        <button type="submit" name="agendar" class="btn btn-primary">
-                            <i class="fa-solid fa-circle-check"></i> Agendar
-                        </button>
-                    </form>
-                <?php }} ?>
+                        <form method="POST">
+                            <input type="hidden" name="agendamento_id" value="<?php echo $agendado['agendamento_id']; ?>">
+                            <button type="submit" name="desmarcar" class="btn btn-primary desmarcar">
+                                <i class="fa-solid fa-xmark"></i> Desmarcar
+                            </button>
+                        </form>
+                    <?php }else{ ?>
+                        <form method="POST">
+                            <input type="hidden" name="modalidade_id" value="<?php echo $aula['modalidade_id']; ?>">
+                            <input type="hidden" name="data" value="<?php echo date('Y-m-d H:i:s'); ?>"> 
+                            <button type="submit" name="agendar" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-check"></i> Agendar
+                            </button>
+                        </form>
+                    <?php }
+                    }
+                } ?>
             </div>
         <?php } ?>
         

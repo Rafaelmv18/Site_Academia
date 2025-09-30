@@ -31,19 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ===================================================
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Descomente para depuração detalhada
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';        // Servidor SMTP do Gmail
-        $mail->SMTPAuth   = true;                    // Habilita autenticação SMTP
-        $mail->Username   = 'seu-email@gmail.com';   // SEU E-MAIL do Gmail
-        $mail->Password   = 'sua-senha-de-app-de-16-letras'; // SUA SENHA DE APP gerada
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Criptografia SSL
-        $mail->Port       = 465;                     // Porta para SSL
+        $mail->Host       = 'smtp-relay.brevo.com';      // Servidor da Brevo
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'spikegymbr@gmail.com'; // E-mail que você usou para se cadastrar na Brevo
+        $mail->Password   = '3J6wr0kCfAxMHbVT'; // A chave que a Brevo te deu
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Criptografia TLS
+        $mail->Port       = 587;                 // Porta para SSL
 
         // ===================================================
         // PASSO 3: CONFIGURAÇÕES DA MENSAGEM
         // ===================================================
         // Quem envia o e-mail (deve ser o mesmo e-mail do Username)
-        $mail->setFrom('seu-email@gmail.com', 'Contato Site SPIKE GYM');
-
+        $mail->setFrom('spikegymbr@gmail.com', 'Site SPIKE GYM');
         // Para quem o e-mail será enviado (o e-mail da sua academia)
         $mail->addAddress('email.da.sua.academia@exemplo.com', 'Recepção SPIKE GYM');
 
