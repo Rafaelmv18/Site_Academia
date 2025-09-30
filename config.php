@@ -15,9 +15,9 @@ function verificaPermissao($permissao){
     }
 }
 
-define('DB_HOST', 'aws-1-sa-east-1.pooler.supabase.com');
+define('DB_HOST', 'db.ijjrjomdbsdbqkpolonh.supabase.co');
 define('DB_NAME', 'postgres'); 
-define('DB_USER', 'postgres.ijjrjomdbsdbqkpolonh');
+define('DB_USER', 'postgres');
 define('DB_PASS', '@siteacademia1');
 
 ?>
