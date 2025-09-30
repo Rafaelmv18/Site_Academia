@@ -28,12 +28,12 @@ spl_autoload_register($autoload);
 $supabase = new PgSql(SUPABASE_URL, SUPABASE_KEY);
 
 // 5. FUNÇÕES GLOBAIS DE AJUDA (continua igual)
-if (!function_exists('verificaPermissao')) {
-    function verificaPermissao($permissao){
-        if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] < $permissao){
-            header("Location: " . BASE_URL . "painel.php?section=inicio");
-            exit();
-        }
+function verificaPermissao($permissao){
+    // Assumindo que 1=Admin e 0=Normal, um Admin (1) tem permissão maior que um usuário (0).
+    // A lógica deve ser >= (maior ou igual a).
+    if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] < $permissao){
+        header("Location: " . BASE_URL . "painel.php?section=inicio");
+        exit();
     }
 }
 
