@@ -10,7 +10,7 @@ define('BASE_URL', 'http://localhost/Site_Academia/');
 // ===================================================
 // Encontre estes valores no seu painel do Supabase em Settings -> API
 define('SUPABASE_URL', 'https://ijjrjomdbsdbqkpolonh.supabase.co');
-define('SUPABASE_KEY', 'SUA_CHAVE_API_"SERVICE_ROLE"_SECRET_AQUI'); // << COLOQUE SUA CHAVE SECRETA AQUI
+define('SUPABASE_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqanJqb21kYnNkYnFrcG9sb25oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyNDkyNDIsImV4cCI6MjA3MzgyNTI0Mn0.eaE4ZSOBkXNqzMB4uJvjrJvwzopDjFR15wmVe0wQYpk'); // << COLOQUE SUA CHAVE SECRETA AQUI
 
 // 3. AUTOLOADER DE CLASSES
 // Carrega automaticamente os arquivos da pasta /classes/ quando uma classe é chamada
