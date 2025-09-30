@@ -79,14 +79,6 @@ class PgSql {
         return $this->executeCurl('GET', $table, [], $query);
     }
 
-    public function selectAll($table, $by, $order = 'asc') {
-        // Monta a query no formato da API do Supabase: select=*&order=coluna.direcao
-        $query = "select=*&order={$by}.{$order}";
-        
-        // Reutiliza o método 'select' que já faz a chamada GET
-        return $this->select($table, $query);
-    }
-
     /**
      * Insere uma nova linha em uma tabela.
      * Ex: $supabase->insert('Usuario', ['nome' => 'João', 'email' => 'joao@email.com']);

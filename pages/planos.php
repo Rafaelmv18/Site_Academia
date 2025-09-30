@@ -1,14 +1,10 @@
 <?php
-    require('config.php'); // Inclui o config.php, que já cria a variável $supabase
-    global $supabase;
+require_once 'config.php'; 
+global $supabase;
 
-    // A chamada é exatamente como você fazia antes com a classe Painel!
-    $planos = $supabase->selectAll('Plano', 'plano_id', 'ASC');
-
-    // Mostra o resultado
-    echo '<pre>';
-    print_r($planos);
-    echo '</pre>';
+// 2. Usa o método 'select' da classe SupabaseAPI para buscar os planos.
+//    O resultado já vem como um array PHP.
+$planos = $supabase->select('Plano', 'select=*&order=plano_id.asc');
 ?>
 <section class="sobre">
     <h2>Transforme Seu Corpo e Mente</h2>
