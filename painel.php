@@ -15,6 +15,7 @@ if (isset($_POST['cadastro'])) {
     $cargo = $_POST['cargo'];
 
     Usuario::cadastrarUsuario($nome, $senha, $cpf, $email, $telefone, $data, $endereco, $tipo, $cargo);
+    Painel::alert("sucesso", "Usuário atualizada!");
 }
 
 if (isset($_POST['atualiza'])) {
@@ -36,6 +37,7 @@ if (isset($_POST['atualiza'])) {
         $data,
         $_POST['endereco']
     );
+    Painel::alert("sucesso", "Atualizado com sucesso!");
 }
 
 // Define o diretório de destino para as imagens
@@ -63,6 +65,7 @@ if (isset($_POST['cadastrarModalidade'])) {
     }
 
     Modalidade::cadastrarModalidade($nome, $descricao, $horariosJson, $imagemPath);
+    Painel::alert("sucesso", "Modalidade cadastrada!");
 }
 
 // --- ATUALIZAR MODALIDADE EXISTENTE ---
@@ -103,8 +106,8 @@ if (isset($_POST['atualizarModalidade'])) {
             $imagemPath = $caminhoCompleto;
         }
     }
-
     Modalidade::atualizarModalidade($id, $nome, $descricao, $horariosJsonParaSalvar, $imagemPath);
+    Painel::alert("sucesso", "Modalidade atualizada!");
 }
 
 // --- EXCLUIR MODALIDADE ---
@@ -119,6 +122,7 @@ if (isset($_POST['excluirModalidade'])) {
     }
 
     Modalidade::deletarModalidade($id);
+    Painel::alert("sucesso", "Modalidade deletada!");
 }
 
 if(isset($_POST['cadastrarPlano'])){
@@ -127,6 +131,7 @@ if(isset($_POST['cadastrarPlano'])){
     $descricao = $_POST['descricao'];
 
     Plano::cadastrarPlano($nome, $descricao, $valor,); 
+    Painel::alert("sucesso", "Plano cadastrado!");
 }
 
 if(isset($_POST['atualizarPlano'])){
@@ -136,12 +141,14 @@ if(isset($_POST['atualizarPlano'])){
     $descricao = $_POST['descricao'];
 
     Plano::atualizarPlano($id, $nome, $valor, $descricao); 
+    Painel::alert("sucesso", "Plano atualizado!");
 }
 
 if(isset($_POST['excluirPlano'])){
     $id = $_POST['plano_id'];
 
     Plano::deletarPlano($id);
+    Painel::alert("sucesso", "Plano deletado!");
 }
 
 if (isset($_POST['agendar'])) {
@@ -299,7 +306,7 @@ if (isset($_POST['desmarcar'])) {
             </div>
         </main>
     </div>
-
     <script src="./js/dashboard.js"></script>
+    <script src="./js/alerta_remover.js"></script>
 </body>
 </html>

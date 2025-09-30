@@ -32,35 +32,33 @@ class Painel{
 		$con = null;
 		return $result;
 	}
-	public static function alert($tipo,$mensagem){
+    public static function alert($tipo,$mensagem){
 		if($tipo == 'sucesso'){
 			echo '
-				<div class="alert alert-success" role="alert" style="z-index: 99; top: 1vh; position: fixed; left: 75vw;">
-					<i class="bi bi-check-circle me-1" style="margin-right: 5px;"></i>'
+				<div class="alert alert-success" role="alert" style="z-index: 9999; top: 1vh; position: fixed; left: 75vw;">
+					<i class="fas fa-check-circle me-1" style="margin-right: 5px;"></i>'
 					.$mensagem.
 					'
 					<span class="progress"></span>
 				</div>';
 		}else if($tipo == 'atencao'){
 			echo '
-				<div class="noprint alert alert-warning" role="alert" style="z-index: 99; top: 1vh; position: fixed; left: 75vw;">
-					<i class="bi bi-exclamation-triangle me-1" style="margin-right: 5px;"></i>'
+				<div class="noprint alert alert-warning" role="alert" style="z-index: 9999; top: 1vh; position: fixed; left: 75vw;">
+					<i class="fas fa-exclamation-triangle me-1" style="margin-right: 5px;"></i>'
 					.$mensagem.
 					'
 					<span class="progress"></span>
 				</div>';
 		}else if($tipo == 'erro'){
 			echo '
-				<div class="alert alert-danger" role="alert" style="z-index: 99; top: 1vh; position: fixed; left: 75vw;">
-					<i class="bi bi-exclamation-octagon me-1" style="margin-right: 5px;"></i>'
+				<div class="alert alert-danger" role="alert" style="z-index: 9999; top: 1vh; position: fixed; left: 75vw;">
+					<i class="fas fa-exclamation-circle me-1" style="margin-right: 5px;"></i>'
 					.$mensagem.
 					'
 					<span class="progress"></span>
 				</div>';
 		}
 	}
-
-
     /**
      * Método para redirecionar o usuário para uma URL específica.
      * @param string $url A URL de destino para o redirecionamento.
