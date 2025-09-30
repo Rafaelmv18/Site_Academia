@@ -25,7 +25,7 @@ spl_autoload_register($autoload);
 
 // 4. CRIA UMA INSTÂNCIA GLOBAL DO CLIENTE DA API
 // Para que você possa usar a variável $supabase em qualquer lugar do seu código.
-$supabase = new SupabaseAPI(SUPABASE_URL, SUPABASE_KEY);
+$supabase = new PgSql(SUPABASE_URL, SUPABASE_KEY);
 
 // 5. FUNÇÕES GLOBAIS DE AJUDA (continua igual)
 function verificaPermissao($permissao){
