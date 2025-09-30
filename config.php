@@ -5,7 +5,7 @@ $autoload = function($class){
 };
 spl_autoload_register($autoload);
 
-define('INCLUDE_PATH','https://localhost/Site_Academia/');
+define('INCLUDE_PATH','localhost/Site_Academia/');
 
 function verificaPermissao($permissao){
     if(!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] < $permissao){

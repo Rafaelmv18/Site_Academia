@@ -29,7 +29,7 @@
             }
             ?>
 
-            <form class="login-form" action="enviar_recuperacao.php" method="post">
+            <form class="login-form" action="../enviar_recuperacao.php" method="post">
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fas fa-envelope input-icon"></i>
