@@ -1,6 +1,10 @@
 <?php
 require_once 'config.php'; 
-$planos = Painel::selectAll('plano', 'plano_id', 'ASC');
+global $supabase;
+
+// 2. Usa o método 'select' da classe SupabaseAPI para buscar os planos.
+//    O resultado já vem como um array PHP.
+$planos = $supabase->select('Plano', 'select=*&order=plano_id.asc');
 ?>
 <section class="sobre">
     <h2>Transforme Seu Corpo e Mente</h2>
