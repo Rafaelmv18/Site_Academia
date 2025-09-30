@@ -533,10 +533,23 @@ body {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    
     .sidebar {
         transform: translateX(-100%);
     }
-    
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
     .sidebar.open {
         transform: translateX(0);
     }
