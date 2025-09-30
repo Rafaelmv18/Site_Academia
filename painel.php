@@ -161,6 +161,19 @@ if (isset($_POST['desmarcar'])) {
 
 
 ?>
+
+<?php
+    require('config.php'); // Inclui o config.php que já cria o $supabase
+    global $supabase; // Torna a variável global acessível dentro da função/escopo
+
+    // Busca todos os usuários da tabela 'Usuario'
+    $usuarios = $supabase->select('Usuario');
+
+    // Mostra o resultado
+    echo '<pre>';
+    print_r($usuarios);
+    echo '</pre>';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
