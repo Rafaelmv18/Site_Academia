@@ -1,4 +1,4 @@
-<!-- ?php 
+<?php 
 
 class Painel{
 	public static function selectQuery($table, $query = '', $by, $order){
@@ -145,4 +145,4 @@ class Painel{
         }
     }
 }
-?> -->
+?>
