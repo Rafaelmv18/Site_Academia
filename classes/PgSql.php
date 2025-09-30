@@ -8,7 +8,7 @@ class PgSql {
             try {
                 // Usa pgsql ao invés de mysql
                 self::$pdo = new PDO(
-                    'pgsql:host=' . DB_HOST . ';port=5432;dbname=' . DB_NAME,
+                    'pgsql:host=' . DB_HOST . ';port=6543;dbname=' . DB_NAME,
                     DB_USER,
                     DB_PASS
                 );
