@@ -9,11 +9,11 @@ Class Modalidade{
     public static function atualizarModalidade($id, $nome, $descricao, $horarios, $imagens) {
         $con = PgSql::conectar();
         $sql = $con->prepare("UPDATE modalidade SET nome = ?, descricao = ?, horarios = ?, imagem = ? WHERE modalidade_id = ?");
-        if ($sql->execute(array($nome, $descricao, $horarios, $imagens, $id))) {
-            $con = null;
+        $result = $sql->execute(array($nome, $descricao, $horarios, $imagens, $id));
+        $con = null;
+        if ($result) {
             return true;
         } else {
-            $con = null;
             return false;
         }
     }

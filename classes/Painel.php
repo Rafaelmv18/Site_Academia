@@ -77,7 +77,9 @@ class Painel{
     }
 
 	public static function getRelatorioFrequencia() {
+        $con = null; // Inicializa $con como null
         try {
+            $con = PgSql::conectar();
             // SQL para contar as entradas de cada aluno
             $sql = "
                 SELECT 
@@ -97,24 +99,25 @@ class Painel{
                     total_frequencia DESC
             ";
 
-            $con = PgSql::conectar();
             $stmt = $con->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $con = null;
-            return $result;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
             // Em um sistema real, aqui você faria o log do erro.
             // Para depuração, podemos mostrar a mensagem:
             // die("Erro ao gerar relatório de frequência: " . $e->getMessage());
             return []; // Retorna um array vazio em caso de erro
+        } finally {
+            if ($con) { $con = null; } // Garante que a conexão seja fechada, ocorra erro ou não
         }
     }
 
 
     public static function getRelatorioOcupacao() {
+        $con = null; // Inicializa $con como null
         try {
+            $con = PgSql::conectar();
             // SQL para contar os agendamentos de cada modalidade
             $sql = "
                 SELECT 
@@ -130,16 +133,15 @@ class Painel{
                     total_agendamentos DESC
             ";
 
-            $con = PgSql::conectar();
             $stmt = $con->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $con = null;
-            return $result;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
             // die("Erro ao gerar relatório de ocupação: " . $e->getMessage());
             return []; // Retorna um array vazio em caso de erro
+        } finally {
+            if ($con) { $con = null; } // Garante que a conexão seja fechada, ocorra erro ou não
         }
     }
 }

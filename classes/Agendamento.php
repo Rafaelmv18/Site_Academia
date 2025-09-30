@@ -1,26 +1,15 @@
 <?php 
-Class Modalidade{
-    public static function cadastrarModalidade($nome, $descricao, $horarios, $imagens) {
+Class Agendamento {
+    public static function criarAgendamento($modalidade_id, $aluno_id, $data) {
         $con = PgSql::conectar();
-        $sql = $con->prepare("INSERT INTO modalidade (nome, descricao, horarios, imagem) VALUES (?, ?, ?, ?)");
-        $sql->execute(array($nome, $descricao, $horarios, $imagens));
+        $sql = $con->prepare("INSERT INTO agendamento (modalidade_id, aluno_id, data) VALUES (?, ?, ?)");
+        $sql->execute(array($modalidade_id, $aluno_id, $data));
         $con = null;
     }
-    public static function atualizarModalidade($id, $nome, $descricao, $horarios, $imagens) {
+    public static function deletarAgendamento($agendamento_id) {
         $con = PgSql::conectar();
-        $sql = $con->prepare("UPDATE modalidade SET nome = ?, descricao = ?, horarios = ?, imagem = ? WHERE modalidade_id = ?");
-        if ($sql->execute(array($nome, $descricao, $horarios, $imagens, $id))) {
-            $con = null;
-            return true;
-        } else {
-            $con = null;
-            return false;
-        }
-    }
-    public static function deletarModalidade($id) {
-        $con = PgSql::conectar();
-        $sql = $con->prepare("DELETE FROM modalidade WHERE modalidade_id = ?");
-        $sql->execute(array($id));
+        $sql = $con->prepare("DELETE FROM agendamento WHERE agendamento_id = ?");
+        $sql->execute(array($agendamento_id));
         $con = null;
     }
 }

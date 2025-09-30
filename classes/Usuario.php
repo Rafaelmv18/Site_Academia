@@ -9,11 +9,11 @@ Class Usuario{
 	public static function atualizarUsuario($id, $nome, $cpf, $email, $telefone, $data, $endereco) {
         $con = PgSql::conectar();
 		$sql = $con->prepare("UPDATE usuario SET nome = ?, cpf = ?, email = ?, telefone = ?, data_nascimento = ?, endereco = ? WHERE usuario_id = ?");
-		if ($sql->execute(array($nome, $cpf, $email, $telefone, $data, $endereco, $id))) {
-            $con = null;
+		$result = $sql->execute(array($nome, $cpf, $email, $telefone, $data, $endereco, $id));
+        $con = null;
+		if ($result) {
 			return true;
 		} else {
-            $con = null;
 			return false;
 		}
 	}
