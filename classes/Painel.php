@@ -2,26 +2,35 @@
 
 class Painel{
 	public static function selectQuery($table, $query = '', $by, $order){
-		$sql = PgSql::conectar()->prepare("SELECT * FROM $table $query ORDER BY $by $order");
+		$con = PgSql::conectar();
+		$sql = $con->prepare("SELECT * FROM $table $query ORDER BY $by $order");
 		$sql->execute();
-		return $sql->fetchAll(PDO::FETCH_ASSOC);
+		$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+		$con = null;
+		return $result;
 	}
 
 	public static function select($table, $query = '', $arr = []){
+		$con = PgSql::conectar();
 		if($query != false){
-			$sql = PgSql::conectar()->prepare("SELECT * FROM $table WHERE $query");
+			$sql = $con->prepare("SELECT * FROM $table WHERE $query");
 			$sql->execute($arr);
 		} else {
-			$sql = PgSql::conectar()->prepare("SELECT * FROM $table");
+			$sql = $con->prepare("SELECT * FROM $table");
 			$sql->execute();
 		}
-		return $sql->fetch(PDO::FETCH_ASSOC);
+		$result = $sql->fetch(PDO::FETCH_ASSOC);
+		$con = null;
+		return $result;
 	}
 
 	public static function selectAll($table, $by, $order){
-		$busca = PgSql::conectar()->prepare("SELECT * FROM $table ORDER BY $by $order");
+		$con = PgSql::conectar();
+		$busca = $con->prepare("SELECT * FROM $table ORDER BY $by $order");
 		$busca->execute();
-		return $busca->fetchAll(PDO::FETCH_ASSOC);
+		$result = $busca->fetchAll(PDO::FETCH_ASSOC);
+		$con = null;
+		return $result;
 	}
 	public static function alert($tipo,$mensagem){
 		if($tipo == 'sucesso'){
@@ -88,9 +97,12 @@ class Painel{
                     total_frequencia DESC
             ";
 
-            $stmt = PgSql::conectar()->prepare($sql);
+            $con = PgSql::conectar();
+            $stmt = $con->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con = null;
+            return $result;
 
         } catch (PDOException $e) {
             // Em um sistema real, aqui você faria o log do erro.
@@ -118,9 +130,12 @@ class Painel{
                     total_agendamentos DESC
             ";
 
-            $stmt = PgSql::conectar()->prepare($sql);
+            $con = PgSql::conectar();
+            $stmt = $con->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $con = null;
+            return $result;
 
         } catch (PDOException $e) {
             // die("Erro ao gerar relatório de ocupação: " . $e->getMessage());
